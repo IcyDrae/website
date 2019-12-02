@@ -1,32 +1,29 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <NavigationBar></NavigationBar>
+    <Intro></Intro>
     <router-view />
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import NavigationBar from '@/components/NavigationBar.vue'
+import Intro from '@/components/Intro.vue'
+import appStyles from './styles/app.scss'
+import responsiveStyles from './styles/responsive.scss'
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+export default {
+  components: {
+    NavigationBar,
+    Intro
+  },
+  data() {
+    return {
     }
+  },
+  methods: {
+
   }
-}
-</style>
+};
+
+</script>
