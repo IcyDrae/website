@@ -16,7 +16,7 @@
         color: white;
         text-decoration: none;
         position: fixed;
-        z-index: 1;
+        z-index: 100000;
     }
 
     .bg-img {
@@ -27,7 +27,7 @@
     }
 
       .logo-paragraph {
-        font-size: /* 30px */ 1.8rem;
+        font-size: 2rem;
         text-transform: uppercase;
       }
 
@@ -38,6 +38,7 @@
         cursor: pointer;
         position: fixed;
         right: 5%;
+        z-index: 10000;
 
           .bar1, .bar2, .bar3 {
             height: 3px;
@@ -113,6 +114,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 10000;
 }
 
 .menu-wrap .menu > div {

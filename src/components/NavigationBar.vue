@@ -1,9 +1,9 @@
 <template>
     <div id="nav" class="menu-wrap">
         <router-link class="logo" :to="{name : 'home'}">
-            <p class="logo-paragraph">Nur Fide</p>
+            <p class="logo-paragraph" v-bind:class="[{active: activeState}, '']">{{ this.logoState }}</p>
         </router-link>
-        <div class="menu" v-bind:class="[{active: isActive}, '']">
+        <div class="menu" v-bind:class="[{active: activeState}, '']">
         <div class="bg-img">
           <div>
             <div>
@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <div class="burger-lines" v-bind:class="[{ change: isActive }, '']" v-on:click="showOverlay()">
+      <div class="burger-lines" v-bind:class="[{ change: activeState }, '']" v-on:click="show()">
         <div class="bar bar1"></div>
         <div class="bar bar2"></div>
         <div class="bar bar3"></div>
@@ -26,27 +26,39 @@
 </template>
 
 <script>
-import navBarStyles from '@/styles/navbar.scss'
+import navBarStyles from '@/styles/navbar.scss';
+import { mapActions, mapGetters } from 'vuex';
 
 
 export default {
   name: 'NavigationBar',
   data() {
     return {
-      isActive: false,
+
     }
 
+  },
+  computed: {
+    ...mapGetters(["activeState", "logoState"]),
   },
   methods: {
-    showOverlay() {
-        this.isActive = !this.isActive
-    },
-    redirectToHome() {
-
+    ...mapActions(['showOverlay']),
+    show() {
+      this.showOverlay(this.isActive)
     }
+/*     showOverlay() {
+      this.$emit('isActive', this.isActive = !this.isActive)
+
+        if (this.isActive) {
+          this.logoText = 'authority';
+        } else {
+          this.logoText = 'nur fide';
+        }
+
+    },
   },
   mounted() {
-  window.addEventListener('keyup', ev => {
+  /* window.addEventListener('keyup', ev => {
     if (ev.keyCode === 27) {
       if (this.isActive = true) {
           this.isActive = false
@@ -54,8 +66,8 @@ export default {
           return
       }
     }
-  })
-}
+  }) */
+},
 };
 
 </script>

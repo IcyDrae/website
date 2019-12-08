@@ -1,0 +1,22 @@
+@import './variables.scss';
+
+.my-world-container {
+    z-index: -1;
+    color: white;
+    position: relative;
+    top: 40rem;
+    min-height: 100vh;
+    p {
+        text-align: center;
+        position: relative;
+        font-size: 5em;
+        text-transform: uppercase;
+        white-space: nowrap;
+
+        span {
+            color: $body-background-color;
+            -webkit-text-stroke-color: white;
+            -webkit-text-stroke-width: 1px;
+        }
+    }
+}

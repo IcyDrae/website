@@ -5,33 +5,87 @@
     height: 80vh;
     max-width: 100%;
     max-height: 100%;
-    position: relative;
-    top: 5vh;
-    z-index: -1;
+
+    display: flex;
+    transform: translateY(20%);
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
 
     background-image: url(../assets/mypic.png);
     background-position: left;
     background-repeat: no-repeat;
     background-size: contain;
+        .paragraph-container {
+            width: 40%;
+            height: 40%;
+            background-color: $body-background-color;
+            display: flex;
+            align-items: center;
+            transform: translateY(50%);
+
+        }
+        
+        .paragraph-container p {
+            font-size: 105px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 30px;
+            font-weight: 500;
+
+            /* text-shadow: -1px 0 blue;
+            clip-path: rect(0, 900px, 0, 0);
+            animation: noise-animation 2s infinite linear alternate-reverse; */
+        }
+
+        /* .paragraph-container p:after {
+
+            content: attr(data-text);
+            text-shadow: -1px 0 red;
+            overflow: hidden;
+            clip-path: rect(0, 900px, 0, 0);
+            animation: noise-animation 2s infinite linear alternate-reverse;
+
+            font-size: 105px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 30px;
+            font-weight: 500;
+            position: relative;
+            right: 101%;
+            transform: translateY(-50%);
+        } */
+
+        @keyframes noise-animation {
+            $steps: 20;
+            $i: 0;
+            @for $var from 0 to $steps {
+                #{percentage($i*(1/$steps))} {
+                    clip-path: rect(random(100)+px, 9999px, random(100)+px, 0);
+                }
+            }
+        }
+
+        .main-section-container {
+            z-index: -1;
+            color: white;
+            font-size: 40px;
+
+            display: flex;
+            align-self: flex-start;
+            transform: translateY(110%);
+            margin-left: 3rem;
+
+            p {
+                text-align: left;
+
+                span:first-of-type {
+                    color: $body-background-color;
+                    -webkit-text-stroke-color: white;
+                    -webkit-text-stroke-width: 1px;
+                }
+            }
+        }
 }
 
-.paragraph-container {
-    width: 40%;
-    height: 40%;
-    background-color: $body-background-color;
-    margin: 0 auto;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.paragraph-container p {
-    font-size: 90px;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 30px;
-    font-weight: 500;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-}
