@@ -22,7 +22,7 @@ export default {
     RepeatingWords,
     NavigationBar,
     Intro,
-    MyWorld
+    MyWorld,
   },
   data() {
     return {
