@@ -7,12 +7,20 @@ export default new Vuex.Store({
   state: {
     isActive: false,
     logoText: 'nur fide',
-    visibility: '',
+    words: [
+      { content: 'Trust' },
+          { content: 'Gratitude' },
+          { content: 'Mercy' },
+          { content: 'Authority' },
+          { content: 'All-Encompassing' },
+          { content: 'Beauty' },
+          { content: 'Return' },
+    ],
   },
   getters: {
     activeState: state => state.isActive,
     logoState: state => state.logoText,
-    scrollbarVisibility: state => state.visibility
+    endlessWords: state => state.words,
   },
   mutations: {
     setIsActive(state, boolean) {
@@ -28,25 +36,12 @@ export default new Vuex.Store({
         console.log('Logo text is: ' + state.logoText)
       }
     },
-    setScrollbarVisibility(state, style) {
-      state.visibility = style
-      if (this.state.isActive) {
-        /* document.querySelector('body').style.overflowY = 'hidden'; */
-        console.log('good')
-      } else if(!this.state.isActive || this.state.isActive == undefined) {
-        state.style = visibility
-        /* document.querySelector('body').style.overflowY = 'auto'; */
-      }
-    }
   },
   actions: {
     showOverlay(context) {
-        context.commit('setIsActive', this.boolean = !this.boolean)
-        context.commit('setLogoText', 'authority')
-      },
-      hideScrollbar(context) {
-        context.commit('setScrollbarVisibility', 'hidden' || 'auto')
-      }
+      context.commit('setIsActive', this.boolean = !this.boolean)
+      context.commit('setLogoText', 'authority')
+    },
   },
   modules: {}
 });

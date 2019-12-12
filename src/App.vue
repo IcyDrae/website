@@ -3,7 +3,7 @@
     <RepeatingWords></RepeatingWords>
     <NavigationBar></NavigationBar>
     <Intro></Intro>
-    <MyWorld></MyWorld>
+    <MyWorld @parallax-event="parallaxHandler"></MyWorld>
     <router-view />
   </div>
 </template>
@@ -26,38 +26,36 @@ export default {
   },
   data() {
     return {
-
+      parallaxMovement: Number,
+      myWorldParagraph: String,
     }
   },
   methods: {
-    ...mapActions(['hideScrollbar']),
-    /* checkIf() {
-      if (this.hideScrollbar) {
-        document.querySelector('body').style.overflowY = this.scrollbarVisibility;
-      }
-    } */
-  },
-  mounted() {
-    this.checkIf()
-  },
-  computed: {
-    ...mapGetters(["activeState", 'scrollbarVisibility']),
-    hideScrollbar() {
-          if (this.activeState) {
-            document.querySelector('body').style.overflowY = 'hidden';
-          } else if(!this.activeState || this.activeState == undefined) {
-            document.querySelector('body').style.overflowY = 'auto';
-          }
-        }
-  },
-  watch: {
+    parallaxHandler(factor) {
+      /* If the event is a method(like in this case), the emitted values are the first parameter(in this case factor),
+      that's why we don't use two parameters */
+      this.parallaxMovement = Math.round((window.scrollY / window.outerHeight) * - factor[0]);
+      this.myWorldParagraph = factor[1];
+      factor[1].style.transform = 'translateX(' + (this.parallaxMovement - 0) + 'px)';
+    },
     hideScrollbar() {
       if (this.activeState) {
-        document.querySelector('body').style.overflowY = this.isActive ? 'hidden' : 'auto';
+        document.querySelector('body').style.overflowY = 'hidden';
       } else if(!this.activeState || this.activeState == undefined) {
         document.querySelector('body').style.overflowY = 'auto';
       }
+      console.log(this.activeState);
     }
+  },
+  mounted() {
+  },
+  computed: {
+    ...mapGetters(["activeState"]),
+  },
+  watch: {
+    activeState: function () {
+      this.hideScrollbar();
+    },
   },
 };
 

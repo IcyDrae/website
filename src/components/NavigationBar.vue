@@ -44,30 +44,20 @@ export default {
   methods: {
     ...mapActions(['showOverlay']),
     show() {
-      this.showOverlay(this.isActive)
-    }
-/*     showOverlay() {
-      this.$emit('isActive', this.isActive = !this.isActive)
-
-        if (this.isActive) {
-          this.logoText = 'authority';
-        } else {
-          this.logoText = 'nur fide';
-        }
-
+      this.showOverlay()
     },
   },
   mounted() {
-  /* window.addEventListener('keyup', ev => {
-    if (ev.keyCode === 27) {
-      if (this.isActive = true) {
-          this.isActive = false
-      } else {
+    window.addEventListener('keyup', ev => {
+      if (ev.keyCode === 27) {
+        if (this.activeState) {
+          this.showOverlay() // TODO qweqweqweqwe
+        } else {
           return
+        }
       }
-    }
-  }) */
-},
+    })
+  },
 };
 
 </script>

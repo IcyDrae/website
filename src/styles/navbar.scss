@@ -41,10 +41,10 @@
         z-index: 10000;
 
           .bar1, .bar2, .bar3 {
-            height: 3px;
+            height: 3.5px;
             background-color: white;
             transition: 0.4s;
-            margin: 5px 0 0 6px;
+            margin: 6px 0 0 5px;
           }
 
           .bar1 {
@@ -69,15 +69,15 @@
       }
 
       .change .bar1 {
-        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-        transform: rotate(-45deg) translate(-5px, -2px);
-        width: 30px;
+        -webkit-transform: rotate(-45deg) translate(-5px, -2px);
+        transform: rotate(-45deg) translate(-8px, -4px);
+        width: 35px;
       }
 
       .change .bar2 {
-        -webkit-transform: rotate(45deg) translate(-3px, -8px);
-        transform: rotate(45deg) translate(-11px, 2px);
-        width: 30px;
+        /* -webkit-transform: rotate(45deg) translate(-3px, -8px); */
+        transform: rotate(45deg) translate(-10px, 1px);
+        width: 35px;
       }
 
       .change .bar3 {
