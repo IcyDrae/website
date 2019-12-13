@@ -30,10 +30,8 @@ export default new Vuex.Store({
     setLogoText(state, text) {
       if (this.state.isActive) {
         state.logoText = text
-        console.log('Logo text is: ' + state.logoText)
       } else if(!this.state.isActive || this.state.isActive == undefined) {
         state.logoText = 'nur fide'
-        console.log('Logo text is: ' + state.logoText)
       }
     },
   },

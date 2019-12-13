@@ -2,7 +2,7 @@
   <div class="my-world-container">
       <p class="welcome-to-my-world">welcome to my <span>world</span></p>
       <div class="facts">
-          <p class="i-am">I'm</p>
+          <p class="i-am">I'm-</p>
           <p>23 Years old</p>
           <p>born and raised in <span>Tirana</span>, Albania</p>
           <p>living in <span>Munich</span>, Germany</p>
@@ -24,9 +24,6 @@
                 windowX: '',
                 windowHeight: '',
                 bodyScroll: '',
-
-                htmlElementString: '',
-                factorNumber: ''
             }
         },
         methods: {
@@ -43,7 +40,7 @@
                 }
             } */
             parallaxScrollEffect() {
-                this.$emit('parallax-event', ['250', document.querySelector('.welcome-to-my-world')]);
+                this.$emit('parallax-event', ['250', document.querySelector('.welcome-to-my-world'), 'X']);
             }
         },
         mounted() {
