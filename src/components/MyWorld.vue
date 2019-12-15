@@ -1,12 +1,12 @@
 <template>
   <div class="my-world-container">
-      <p class="welcome-to-my-world">welcome to my <span>world</span></p>
+      <p class="welcome-to-my-world">welcome to my <span data-text="world">world</span></p>
       <div class="facts">
           <p class="i-am">I'm-</p>
-          <p>23 Years old</p>
-          <p>born and raised in <span>Tirana</span>, Albania</p>
-          <p>living in <span>Munich</span>, Germany</p>
-          <p><span>Web Design & Development</span> graduate <br> @SAE Institute Munich</p>
+          <p>23 Years old,</p>
+          <p>born and raised in <span>Tirana</span>, Albania,</p>
+          <p>living in <span>Munich</span>, Germany,</p>
+          <p><span>Web Design & Development</span> graduate <br> @SAE Institute Munich,</p>
       </div>
   </div>
 </template>

@@ -38,13 +38,13 @@ body::-webkit-scrollbar-thumb {
 
 .mouse-ball {
   background-color: white;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
 
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(-10%, -10%);
-    mix-blend-mode: difference;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-10%, -10%);
+  mix-blend-mode: difference;
 }

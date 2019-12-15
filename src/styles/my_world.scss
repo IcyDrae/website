@@ -14,6 +14,28 @@
         font-size: 5em;
         text-transform: uppercase;
         white-space: nowrap;
+
+        span {
+            position: relative;
+        }
+
+        span:after {
+            overflow: hidden;
+            content: attr(data-text);
+            text-shadow: 2px 0 rgb(198, 8, 236);
+            position: absolute;
+            right: 1px;
+            animation: noise-animation 0.5s infinite linear alternate-reverse;
+        }
+
+        span:before {
+            overflow: hidden;
+            content: attr(data-text);
+            text-shadow: 2px 0 rgb(126, 8, 236);
+            position: absolute;
+            left: 1px;
+            animation: noise-animation-1 0.5s infinite linear alternate-reverse;
+        }
     }
 
     .facts {
@@ -21,7 +43,7 @@
         padding-left: 3rem;
         padding-top: 3rem;
         p {
-            padding: 2rem 0 0 0;
+            padding: 0rem 0 0 0;
             font-size: 3em;
         }
         p:first-of-type {

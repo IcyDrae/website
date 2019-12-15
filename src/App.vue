@@ -76,11 +76,11 @@ export default {
       document.addEventListener('mousemove', () => {
         mouseX = event.pageX
         mouseY = event.pageY      
-      })
+      }, false)
     },
   },
   mounted() {
-    this.cursorFollowingBall()
+    /* this.cursorFollowingBall() */
   },
   computed: {
     ...mapGetters(["activeState"]),
