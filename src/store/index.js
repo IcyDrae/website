@@ -25,7 +25,6 @@ export default new Vuex.Store({
   mutations: {
     setIsActive(state, boolean) {
       state.isActive = boolean
-      console.log('Active is: ' + state.isActive);
     },
     setLogoText(state, text) {
       if (this.state.isActive) {

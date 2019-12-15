@@ -20,7 +20,7 @@ export default {
     },
     methods: {
         parallaxScrollEffect() {
-            this.$emit('parallax-event', ['200', document.querySelector('.main-section-container p'), 'Y'])
+            this.$emit('parallax-event', ['300', document.querySelector('.main-section-container p'), 'Y'])
         }
     },
     mounted() {

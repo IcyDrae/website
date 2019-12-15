@@ -3,7 +3,12 @@
 body {
   background-color: $body-background-color;
   overflow-x: hidden;
-  cursor: url('../assets/custom-cursor.svg') 2 2, auto !important;
+  cursor: none !important;
+  scroll-behavior: smooth;
+}
+
+*:hover {
+  cursor: none !important;
 }
 
 #app {
@@ -34,17 +39,4 @@ body::-webkit-scrollbar-thumb {
   background-color: rgb(255, 255, 255);
   outline: 1px solid red;
   border-radius: 1px;
-}
-
-.mouse-ball {
-  background-color: white;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: translate(-10%, -10%);
-  mix-blend-mode: difference;
 }
