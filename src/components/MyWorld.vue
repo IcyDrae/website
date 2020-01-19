@@ -4,7 +4,9 @@
       <div class="facts">
           <p class="i-am">I'm-</p>
           <p>23 Years old-</p>
-          <p>born and raised in <span>Tirana</span>, Albania-</p>
+          <p>born and raised in
+              <span class="tirana">Tirana</span>, Albania-
+          </p>
           <p>living in <span>Munich</span>, Germany-</p>
           <p><span>Web Design & Development</span> graduate <br> @SAE Institute Munich-</p>
       </div>
@@ -41,11 +43,26 @@
             } */
             parallaxScrollEffect() {
                 this.$emit('parallax-event', ['250', document.querySelector('.welcome-to-my-world'), 'X']);
+            },
+            selectTirana() {
+                let tirana = document.querySelector('.tirana')
+                tirana.addEventListener('mouseover', () => {
+                    setTimeout(() => {
+                        tirana.classList.add('with-background-image')
+                    }, 500);
+                })
+
+                tirana.addEventListener('mouseout', () => {
+                    setTimeout(() => {
+                        tirana.classList.remove('with-background-image')
+                    }, 500);
+                })
             }
         },
         mounted() {
             /* window.addEventListener('scroll', this.getPosition); */
             window.addEventListener('scroll', this.parallaxScrollEffect);
+            this.selectTirana()
         },
     }
 </script>
