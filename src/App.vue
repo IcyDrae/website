@@ -17,8 +17,8 @@ import MyWorld from '@/components/MyWorld.vue'
 import appStyles from './styles/app.scss'
 import cursor from './styles/cursor.scss'
 import responsiveStyles from './styles/responsive.scss'
-import CustomCursor from './modules/CustomCursor'
-import ParallaxHandler from './modules/ParallaxHandler'
+import CustomCursor from './helpers/CustomCursor'
+import ParallaxHandler from './helpers/ParallaxHandler'
 import { mapActions, mapGetters } from 'vuex';
 
 const cursorObject = new CustomCursor();
@@ -51,7 +51,8 @@ export default {
     },
   },
   mounted() {
-    cursorObject.initiate()
+    /* cursorObject.initiate() */ //TODO fix cursor behaviour, for some reason the hover
+                                //causes problems when showing images on hover
   },
   watch: {
     activeState: function () {
