@@ -1,4 +1,5 @@
 @import './variables.scss';
+@import './animations.scss';
 
 .intro-container {
     width: 100%;
@@ -18,8 +19,8 @@
     background-repeat: no-repeat;
     background-size: contain;
         .paragraph-container {
-            width: 40%;
-            height: 40%;
+            width: 50%;
+            height: 50%;
             background-color: $body-background-color;
             display: flex;
             align-items: center;
@@ -28,43 +29,48 @@
         }
         
         .paragraph-container p {
-            font-size: 105px;
+            font-size: 155px;
             color: white;
             text-transform: uppercase;
             letter-spacing: 30px;
             font-weight: 500;
 
-            /* text-shadow: -1px 0 blue;
+            text-shadow: -3px 0 rgb(255, 0, 255);
             clip-path: rect(0, 900px, 0, 0);
-            animation: noise-animation 2s infinite linear alternate-reverse; */
+            animation: noise-animation 0.2s infinite linear alternate-reverse;
         }
 
-        /* .paragraph-container p:after {
-
+        .paragraph-container p:after {
             content: attr(data-text);
-            text-shadow: -1px 0 red;
+            text-shadow: 5px 0 rgb(0, 17, 255);
             overflow: hidden;
-            clip-path: rect(0, 900px, 0, 0);
-            animation: noise-animation 2s infinite linear alternate-reverse;
+            clip-path: rect(0, 0, 0, 0);
+            animation: noise-animation-1 0.2s infinite linear alternate-reverse;
 
-            font-size: 105px;
+            font-size: 155px;
             color: white;
             text-transform: uppercase;
             letter-spacing: 30px;
             font-weight: 500;
-            position: relative;
-            right: 101%;
-            transform: translateY(-50%);
-        } */
+            position: absolute;
+            left: 1px;
+        }
 
-        @keyframes noise-animation {
-            $steps: 20;
-            $i: 0;
-            @for $var from 0 to $steps {
-                #{percentage($i*(1/$steps))} {
-                    clip-path: rect(random(100)+px, 9999px, random(100)+px, 0);
-                }
-            }
+        .paragraph-container p:before {
+            content: attr(data-text);
+            text-shadow: 5px 0 rgb(199, 70, 70);
+            overflow: hidden;
+            clip-path: rect(0, 900px, 0, 0);
+            animation: noise-animation-2 0.8s infinite linear alternate-reverse,
+            enlargement 0.5s infinite linear alternate-reverse;
+
+            font-size: 155px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 30px;
+            font-weight: 500;
+            position: absolute;
+            left: -2px;
         }
 
         .main-section-container {
@@ -74,7 +80,7 @@
 
             display: flex;
             align-self: flex-start;
-            transform: translateY(100%);
+            transform: translateY(150%);
             margin-left: 3rem;
 
             p {

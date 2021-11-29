@@ -1,0 +1,28 @@
+/* Cursor */
+
+.cursor {
+    width: 20px;
+    height: 20px;
+    position: fixed;
+    top: 0; // Careful here
+    left: 0;
+    border-radius: 50%;
+    transition: all 0s ease;
+    background-color: white;
+    z-index: 99999;
+    mix-blend-mode: difference;
+}
+
+/* Bounce effect */
+
+.bounce::after {
+    content: "";
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    position: absolute;
+    left: -2.5px;
+    top: -2.5px;
+    border: 5px solid hsla(0, 82%, 49%, 0.525);
+    animation: flow 1.7s ease infinite;
+}

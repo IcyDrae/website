@@ -51,7 +51,7 @@ export default {
     window.addEventListener('keyup', ev => {
       if (ev.keyCode === 27) {
         if (this.activeState) {
-          this.showOverlay() // TODO qweqweqweqwe
+          this.showOverlay()
         } else {
           return
         }

@@ -1,9 +1,6 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import { createStore } from "vuex";
 
-Vue.use(Vuex);
-
-export default new Vuex.Store({
+export default createStore({
   state: {
     isActive: false,
     logoText: 'nur fide',
@@ -25,15 +22,12 @@ export default new Vuex.Store({
   mutations: {
     setIsActive(state, boolean) {
       state.isActive = boolean
-      console.log('Active is: ' + state.isActive);
     },
     setLogoText(state, text) {
       if (this.state.isActive) {
         state.logoText = text
-        console.log('Logo text is: ' + state.logoText)
       } else if(!this.state.isActive || this.state.isActive == undefined) {
         state.logoText = 'nur fide'
-        console.log('Logo text is: ' + state.logoText)
       }
     },
   },

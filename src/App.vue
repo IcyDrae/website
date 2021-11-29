@@ -2,9 +2,10 @@
   <div id="app">
     <RepeatingWords></RepeatingWords>
     <NavigationBar></NavigationBar>
-    <Intro></Intro>
+    <Intro @parallax-event="parallaxHandler"></Intro>
     <MyWorld @parallax-event="parallaxHandler"></MyWorld>
     <router-view />
+    <div class="cursor bounce"></div>
   </div>
 </template>
 
@@ -14,8 +15,14 @@ import NavigationBar from '@/components/NavigationBar.vue'
 import Intro from '@/components/Intro.vue'
 import MyWorld from '@/components/MyWorld.vue'
 import appStyles from './styles/app.scss'
+import cursor from './styles/cursor.scss'
 import responsiveStyles from './styles/responsive.scss'
+import CustomCursor from './helpers/CustomCursor'
+import ParallaxHandler from './helpers/ParallaxHandler'
 import { mapActions, mapGetters } from 'vuex';
+
+const cursorObject = new CustomCursor();
+const parallaxObject = new ParallaxHandler()
 
 export default {
   components: {
@@ -26,17 +33,14 @@ export default {
   },
   data() {
     return {
-      parallaxMovement: Number,
-      myWorldParagraph: String,
     }
+  },
+  computed: {
+    ...mapGetters(["activeState"]),
   },
   methods: {
     parallaxHandler(factor) {
-      /* If the event is a method(like in this case), the emitted values are the first parameter(in this case factor),
-      that's why we don't use two parameters */
-      this.parallaxMovement = Math.round((window.scrollY / window.outerHeight) * - factor[0]);
-      this.myWorldParagraph = factor[1];
-      factor[1].style.transform = 'translateX(' + (this.parallaxMovement - 0) + 'px)';
+      parallaxObject.parallaxHandler(factor)
     },
     hideScrollbar() {
       if (this.activeState) {
@@ -44,13 +48,11 @@ export default {
       } else if(!this.activeState || this.activeState == undefined) {
         document.querySelector('body').style.overflowY = 'auto';
       }
-      console.log(this.activeState);
-    }
+    },
   },
   mounted() {
-  },
-  computed: {
-    ...mapGetters(["activeState"]),
+    /* cursorObject.initiate() */ //TODO fix cursor behaviour, for some reason the hover
+                                //causes problems when showing images on hover
   },
   watch: {
     activeState: function () {

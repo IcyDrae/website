@@ -3,6 +3,20 @@
 body {
   background-color: $body-background-color;
   overflow-x: hidden;
+  /* cursor: none !important; */ //TODO fix cursor behaviour, for some reason the hover
+                                //causes problems when showing images on hover
+  scroll-behavior: smooth;
+}
+
+canvas {
+	display: block;
+	position: relative;
+	left: 0;
+	top: 0;
+}
+
+*:hover {
+  /* cursor: none !important; */
 }
 
 #app {
