@@ -1,5 +1,5 @@
 <template>
-    <div class="intro-section">
+    <div class="intro-section section">
       <div class="intro intro-left">
         <p class="hello" data-text="hello">Hello</p>
         <div class="intro-description">

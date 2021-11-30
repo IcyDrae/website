@@ -1,5 +1,27 @@
-.projects {
+.projects-section {
   color: $white;
+
+  h2 {
+    margin: 3rem 0;
+    text-align: left;
+
+    span {
+      background-image: -webkit-linear-gradient(transparent 18px, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
+      background-image: linear-gradient(transparent 18px, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+  }
+
+  .projects-wrapper {
+    padding: 3rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    .project {
+      width: 200px;
+      height: 200px;
+      border: 1px solid white;
+    }
+  }
 }
-
-
