@@ -6,12 +6,12 @@ export default createStore({
     logoText: 'nur fide',
     words: [
       { content: 'Trust' },
-          { content: 'Gratitude' },
-          { content: 'Mercy' },
-          { content: 'Authority' },
-          { content: 'All-Encompassing' },
-          { content: 'Beauty' },
-          { content: 'Return' },
+      { content: 'Gratitude' },
+      { content: 'Mercy' },
+      { content: 'Authority' },
+      { content: 'All-Encompassing' },
+      { content: 'Beauty' },
+      { content: 'Return' },
     ],
   },
   getters: {

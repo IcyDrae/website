@@ -1,11 +1,15 @@
 <template>
-    <div class="intro-container">
-        <div class="paragraph-container">
-            <p class="hello" data-text="hello">Hello</p>
+    <div class="intro-section">
+      <div class="intro intro-left">
+        <p class="hello" data-text="hello">Hello</p>
+        <div class="intro-description">
+          <p>I am Ray, a Software Engineer with love for the Web, Linux & Infrastructure.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ex explicabo facere ipsam necessitatibus nihil, optio porro quis tempore voluptatem.</p>
         </div>
-        <div class="main-section-container">
-            <p>I'm <span>Reard</span>, <br> Full Stack Web Developer & Designer,<br> system administrator & tech <br> afficionado -</p>
-        </div>
+      </div>
+      <div class="intro intro-right">
+        <img src="@/assets/taxi-function-code-plate.png" alt="">
+      </div>
     </div>
 </template>
 
@@ -13,18 +17,10 @@
 import introScss from "../styles/intro.scss";
 
 export default {
-    name: 'Intro',
-    data() {
-        return {
-        }
-    },
-    methods: {
-        parallaxScrollEffect() {
-            this.$emit('parallax-event', ['300', document.querySelector('.main-section-container p'), 'Y'])
-        }
-    },
-    mounted() {
-        window.addEventListener('scroll', this.parallaxScrollEffect)
+  name: 'Intro',
+  data() {
+    return {
     }
+  }
 }
 </script>

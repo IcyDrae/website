@@ -2,7 +2,7 @@ export default class ParallaxHandler {
     constructor(parallaxCalculation, htmlElement, animateDirection) {
         this.parallaxHandler = this.parallaxHandler.bind(this)
         this.parallaxCalculation = parallaxCalculation
-        this.htmlElement = htmlElement,
+        this.htmlElement = htmlElement
         this.animateDirection = animateDirection
     }
 
@@ -13,7 +13,6 @@ export default class ParallaxHandler {
         this.htmlElement = factor[1];
         this.animateDirection = factor[2];
 
-        this.htmlElement.style.transform = 'translate' + this.animateDirection + '(' + (this.parallaxCalculation - 0) + 'px)';         
-
+        this.htmlElement.style.transform = 'translate' + this.animateDirection + '(' + (this.parallaxCalculation - 0) + 'px)';
     }
 }

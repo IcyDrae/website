@@ -1,28 +1,24 @@
 <template>
-  <div id="app">
-    <RepeatingWords></RepeatingWords>
-    <NavigationBar></NavigationBar>
-    <Intro @parallax-event="parallaxHandler"></Intro>
-    <MyWorld @parallax-event="parallaxHandler"></MyWorld>
-    <router-view />
-    <div class="cursor bounce"></div>
-  </div>
+  <RepeatingWords></RepeatingWords>
+  <NavigationBar></NavigationBar>
+  <Intro></Intro>
+  <router-view />
+  <div class="cursor bounce"></div>
 </template>
 
 <script>
-import RepeatingWords from '@/components/RepeatingWords.vue'
-import NavigationBar from '@/components/NavigationBar.vue'
-import Intro from '@/components/Intro.vue'
-import MyWorld from '@/components/MyWorld.vue'
+
+import RepeatingWords from "./components/RepeatingWords.vue"
+import NavigationBar from "./components/NavigationBar.vue"
+import Intro from "./components/Intro.vue"
+import MyWorld from "./components/MyWorld.vue"
 import appStyles from './styles/app.scss'
 import cursor from './styles/cursor.scss'
 import responsiveStyles from './styles/responsive.scss'
-import CustomCursor from './helpers/CustomCursor'
-import ParallaxHandler from './helpers/ParallaxHandler'
-import { mapActions, mapGetters } from 'vuex';
+import CustomCursor from "./helpers/CustomCursor"
+import { mapActions, mapGetters } from "vuex";
 
 const cursorObject = new CustomCursor();
-const parallaxObject = new ParallaxHandler()
 
 export default {
   components: {
@@ -39,9 +35,6 @@ export default {
     ...mapGetters(["activeState"]),
   },
   methods: {
-    parallaxHandler(factor) {
-      parallaxObject.parallaxHandler(factor)
-    },
     hideScrollbar() {
       if (this.activeState) {
         document.querySelector('body').style.overflowY = 'hidden';
@@ -49,10 +42,6 @@ export default {
         document.querySelector('body').style.overflowY = 'auto';
       }
     },
-  },
-  mounted() {
-    /* cursorObject.initiate() */ //TODO fix cursor behaviour, for some reason the hover
-                                //causes problems when showing images on hover
   },
   watch: {
     activeState: function () {

@@ -26,9 +26,9 @@
 </template>
 
 <script>
-import navBarStyles from '@/styles/navbar.scss';
-import { mapActions, mapGetters } from 'vuex';
 
+import navBarStyles from "@/styles/navbar.scss";
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'NavigationBar',
@@ -36,7 +36,6 @@ export default {
     return {
 
     }
-
   },
   computed: {
     ...mapGetters(["activeState", "logoState"]),
