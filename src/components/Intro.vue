@@ -6,6 +6,16 @@
           <p>I am Ray, a Software Engineer with love for the Web, Linux & Infrastructure.</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ex explicabo facere ipsam necessitatibus nihil, optio porro quis tempore voluptatem.</p>
         </div>
+        <div class="technologies">
+          <h3>Here are some tools I enjoy using:</h3>
+          <p> > Vue.js</p>
+          <p> > Symfony/PHP >=7.4</p>
+          <p> > SCSS</p>
+          <p> > Git</p>
+          <p> > Ubuntu/CentOS/macOS</p>
+          <p> > Docker</p>
+          <p> > Nginx</p>
+        </div>
       </div>
       <div class="intro intro-right">
         <img src="@/assets/taxi-function-code-plate.png" alt="">
@@ -14,7 +24,6 @@
 </template>
 
 <script>
-import introScss from "../styles/intro.scss";
 
 export default {
   name: 'Intro',

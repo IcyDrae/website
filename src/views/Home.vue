@@ -1,17 +1,24 @@
 <template>
   <div class="home">
-    
+    <RepeatingWords></RepeatingWords>
+    <Intro></Intro>
+    <Projects></Projects>
+    <div class="cursor bounce"></div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+
+import RepeatingWords from "../components/RepeatingWords.vue"
+import Intro from "../components/Intro.vue"
+import Projects from "../components/Projects";
 
 export default {
-  name: "home",
+  name: "Home",
   components: {
-    HelloWorld
+    RepeatingWords,
+    Intro,
+    Projects
   }
 };
 </script>

@@ -6,7 +6,7 @@
 </template>
 
 <script>
-    import repeatingWords from '../styles/repeating_words.scss';
+    import repeatingWords from '../styles/components/repeating_words.scss';
     import { mapGetters } from 'vuex';
 
     export default {
