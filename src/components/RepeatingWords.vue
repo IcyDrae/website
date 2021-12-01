@@ -6,21 +6,21 @@
 </template>
 
 <script>
-    import repeatingWords from '../styles/components/repeating_words.scss';
-    import { mapGetters } from 'vuex';
 
-    export default {
-        name: "RepeatingWords",
-        data() {
-            return {
-            }
-        },
-        computed: {
-            ...mapGetters(['endlessWords'])
-        },
-        methods: {
-        },
-    }
+import { mapGetters } from 'vuex';
+
+export default {
+    name: "RepeatingWords",
+    data() {
+        return {
+        }
+    },
+    computed: {
+        ...mapGetters(['endlessWords'])
+    },
+    methods: {
+    },
+}
 </script>
 
 <style>
