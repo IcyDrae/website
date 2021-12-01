@@ -2,26 +2,60 @@
   <div class="projects-section section">
     <h2><span>These are some of my projects</span></h2>
     <div class="projects-wrapper">
-      <div class="project">
-        <p>Name 1</p>
-        <p>Description 1</p>
-      </div>
-      <div class="project">
-        <p>Name 2</p>
-        <p>Description 2</p>
-      </div>
-      <div class="project">
-        <p>Name 3</p>
-        <p>Description 3</p>
-      </div>
+      <a v-for="repository in repositories"
+         :href="repository.html_url"
+         target="_blank">
+        <div class="project">
+          <div class="project-introduction">
+            <p>{{ repository.name }}</p>
+            <p class="project-description">{{ repository.description }}</p>
+          </div>
+          <div class="project-star"
+               v-if="repository.stargazers_count !== 0" >
+            <img src="@/assets/icons/icons8-stern-100.png" alt="">
+            <p>{{ repository.stargazers_count }}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="projects-cta-wrapper">
+      <a class="projects-cta" href="https://github.com/MatrixEternal" target="_blank">See more
+      </a>
+<!--      <button class="projects-cta">See more</button>-->
     </div>
   </div>
 </template>
 
 <script>
 
+import axios from "axios";
+
 export default {
-  name: "Projects"
+  name: "Projects",
+  data() {
+    return {
+      repositories: Array
+    };
+  },
+  async mounted() {
+    await this.fetchRepositories();
+  },
+  methods: {
+    fetchRepositories: async function() {
+      let url = "https://api.github.com/search/repositories?q=user:MatrixEternal&sort=stars&order=desc&per_page=6";
+
+      try {
+        let repositories = await axios.get(url);
+        this.repositories = repositories.data.items;
+
+        for (let repository of this.repositories) {
+          console.log(repository.full_name)
+        }
+      } catch (exception) {
+        console.log(exception)
+      }
+    }
+  }
 }
 
 </script>

@@ -1,12 +1,13 @@
 .projects-section {
+  text-align: left;
 
   h2 {
     margin: 3rem 0;
     text-align: left;
 
     span {
-      background-image: -webkit-linear-gradient(transparent 18px, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
-      background-image: linear-gradient(transparent 18px, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background-image: -webkit-linear-gradient(transparent 18px, #f64f59, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
+      background-image: linear-gradient(transparent 18px, #f64f59, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
   }
 
@@ -14,13 +15,80 @@
     padding: 3rem 0;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
 
-    .project {
-      width: 200px;
-      height: 200px;
-      border: 1px solid white;
+    a {
+      text-decoration: none;
+      color: $white;
+
+      .project {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 350px;
+        height: 250px;
+        margin: 1rem;
+        padding: 2rem;
+        border: 1px solid white;
+        border-radius: 6px;
+
+        p {
+          font-size: 18px;
+          margin: 5px 0;
+        }
+
+        .project-introduction {
+          .project-description {
+            font-size: 14px;
+          }
+        }
+
+        .project-star {
+          display: flex;
+          justify-content: flex-start;
+          gap: 10px;
+
+          img, p {
+            align-self: center;
+          }
+
+          img {
+            width: 18px;
+          }
+        }
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .projects-cta-wrapper {
+    position: absolute;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+
+    a {
+      text-decoration: none;
+    }
+
+    .projects-cta {
+      padding: 20px;
+      font-family: $fontFamily;
+      font-size: 16px;
+      font-weight: 700;
+      color: $black;
+      border-radius: 6px;
+      background-image: -webkit-linear-gradient(to bottom, #f64f59, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
+      background-image: linear-gradient(to bottom, #f64f59, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+      &:hover {
+        background-image: -webkit-linear-gradient(to bottom, #bf424c, #0e91ad);  /* Chrome 10-25, Safari 5.1-6 */
+        background-image: linear-gradient(to bottom, #bf424c, #0e91ad); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      }
     }
   }
 }
