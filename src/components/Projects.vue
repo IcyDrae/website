@@ -7,7 +7,7 @@
          target="_blank">
         <div class="project">
           <div class="project-introduction">
-            <p>{{ repository.name }}</p>
+            <p class="project-name">{{ repository.name }}</p>
             <p class="project-description">{{ repository.description }}</p>
           </div>
           <div class="project-star"
@@ -19,9 +19,7 @@
       </a>
     </div>
     <div class="projects-cta-wrapper">
-      <a class="projects-cta" href="https://github.com/MatrixEternal" target="_blank">See more
-      </a>
-<!--      <button class="projects-cta">See more</button>-->
+      <a class="projects-cta" href="https://github.com/MatrixEternal" target="_blank">See more</a>
     </div>
   </div>
 </template>
@@ -47,10 +45,6 @@ export default {
       try {
         let repositories = await axios.get(url);
         this.repositories = repositories.data.items;
-
-        for (let repository of this.repositories) {
-          console.log(repository.full_name)
-        }
       } catch (exception) {
         console.log(exception)
       }

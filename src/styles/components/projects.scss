@@ -6,8 +6,7 @@
     text-align: left;
 
     span {
-      background-image: -webkit-linear-gradient(transparent 18px, #f64f59, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
-      background-image: linear-gradient(transparent 18px, #f64f59, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      @include gradientBackground(transparent 18px, #f64f59, #12c2e9);
     }
   }
 
@@ -36,6 +35,10 @@
         p {
           font-size: 18px;
           margin: 5px 0;
+        }
+
+        .project-name {
+          font-size: 20px;
         }
 
         .project-introduction {
@@ -82,12 +85,11 @@
       font-weight: 700;
       color: $black;
       border-radius: 6px;
-      background-image: -webkit-linear-gradient(to bottom, #f64f59, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
-      background-image: linear-gradient(to bottom, #f64f59, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+      @include gradientBackground(to bottom, #f64f59, #12c2e9);
 
       &:hover {
-        background-image: -webkit-linear-gradient(to bottom, #bf424c, #0e91ad);  /* Chrome 10-25, Safari 5.1-6 */
-        background-image: linear-gradient(to bottom, #bf424c, #0e91ad); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        @include gradientBackground(to bottom, #bf424c, #0e91ad);
       }
     }
   }
