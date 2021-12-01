@@ -1,15 +1,18 @@
 <template>
   <NavigationBar></NavigationBar>
   <router-view />
+  <Footer></Footer>
 </template>
 
 <script>
 
 import NavigationBar from "./components/NavigationBar";
+import Footer from "./components/Footer/Footer";
 
 export default {
   components: {
-    NavigationBar
+    NavigationBar,
+    Footer
   },
   data() {
     return {

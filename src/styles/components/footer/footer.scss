@@ -1,0 +1,13 @@
+.footer-section {
+  .footer-links-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    a {
+      color: white;
+      text-decoration: none;
+      padding: 1rem 3rem;
+    }
+  }
+}

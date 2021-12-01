@@ -2,8 +2,8 @@
   <footer class="footer-section section">
     <div class="footer-links-wrapper">
       <a href="https://github.com/MatrixEternal" target="_blank">GitHub</a>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms & Conditions</a>
+      <router-link :to="{ name: 'PrivacyPolicy' }">Privacy Policy</router-link>
+      <router-link :to="{ name: 'TermsAndConditions' }">Terms & Conditions</router-link>
     </div>
   </footer>
 </template>
