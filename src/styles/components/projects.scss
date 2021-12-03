@@ -14,7 +14,7 @@
     padding: 3rem 0;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
 
     a {
@@ -27,9 +27,9 @@
         justify-content: space-between;
         width: 350px;
         height: 250px;
-        margin: 1rem;
+        margin: 2rem;
         padding: 2rem;
-        border: 1px solid white;
+        border: 1px solid $white;
         border-radius: 6px;
 
         p {
@@ -64,32 +64,6 @@
         &:hover {
           cursor: pointer;
         }
-      }
-    }
-  }
-
-  .projects-cta-wrapper {
-    position: absolute;
-    left: 50%;
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%);
-
-    a {
-      text-decoration: none;
-    }
-
-    .projects-cta {
-      padding: 20px;
-      font-family: $fontFamily;
-      font-size: 16px;
-      font-weight: 700;
-      color: $black;
-      border-radius: 6px;
-
-      @include gradientBackground(to bottom, #f64f59, #12c2e9);
-
-      &:hover {
-        @include gradientBackground(to bottom, #bf424c, #0e91ad);
       }
     }
   }

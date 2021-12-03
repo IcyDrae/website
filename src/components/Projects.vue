@@ -18,8 +18,8 @@
         </div>
       </a>
     </div>
-    <div class="projects-cta-wrapper">
-      <a class="projects-cta" href="https://github.com/MatrixEternal" target="_blank">See more</a>
+    <div class="cta-wrapper">
+      <a class="cta" href="https://github.com/MatrixEternal" target="_blank">See more</a>
     </div>
   </div>
 </template>
