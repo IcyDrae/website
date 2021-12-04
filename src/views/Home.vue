@@ -4,7 +4,6 @@
     <Intro></Intro>
     <Projects></Projects>
     <Posts></Posts>
-    <div class="cursor bounce"></div>
   </div>
 </template>
 

@@ -14,13 +14,7 @@ html {
 body {
   background-color: $backgroundColor;
   overflow-x: hidden;
-  /* cursor: none !important; */ //TODO fix cursor behaviour, for some reason the hover
-                                //causes problems when showing images on hover
   scroll-behavior: smooth;
-}
-
-*:hover {
-  /* cursor: none !important; */
 }
 
 #app {
