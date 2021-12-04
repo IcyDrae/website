@@ -3,13 +3,9 @@
     <h2><span>My latest posts</span></h2>
     <div v-if="posts.length !== 0">
       <div class="posts-wrapper">
-        <div class="post" v-for="post in posts" :key="post.id">
-          <img :src="post.data.cover_image.url" :alt="post.data.cover_image.alt">
-          <div class="content-wrapper">
-            <p class="date">{{ $prismic.asDate(post.data.written_at) }}</p>
-            <p class="title">{{ post.data.title[0].text }}</p>
-          </div>
-        </div>
+        <PostCard v-for="post in posts"
+                  :key="post.id"
+                  :post="post"></PostCard>
       </div>
       <div class="cta-wrapper">
         <router-link :to="{ name: 'Posts' }" class="cta">More posts</router-link>
@@ -23,8 +19,13 @@
 
 <script>
 
+import PostCard from "./PostCard";
+
 export default {
   name: "Posts",
+  components: {
+    PostCard
+  },
   data() {
     return {
       response: []

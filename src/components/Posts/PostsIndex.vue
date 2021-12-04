@@ -12,13 +12,9 @@
     </div>
     <div v-if="getPosts.length !== 0">
       <div class="posts-wrapper">
-        <div class="post" v-for="post in posts" :key="post.id">
-          <img :src="post.data.cover_image.url" :alt="post.data.cover_image.alt">
-          <div class="content-wrapper">
-            <p class="date">{{ $prismic.asDate(post.data.written_at) }}</p>
-            <p class="title">{{ post.data.title[0].text }}</p>
-          </div>
-        </div>
+        <PostCard v-for="post in posts"
+                  :key="post.id"
+                  :post="post"></PostCard>
       </div>
     </div>
     <div v-else>
@@ -29,12 +25,16 @@
 
 <script>
 
+import PostCard from "./PostCard";
 import { createNamespacedHelpers } from "vuex";
 
 const { mapActions, mapGetters } = createNamespacedHelpers("posts");
 
 export default {
   name: "PostsIndex",
+  components: {
+    PostCard
+  },
   data() {
     return {
       posts: []
