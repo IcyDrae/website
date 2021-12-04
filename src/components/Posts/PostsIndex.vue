@@ -4,13 +4,13 @@
     <div class="tags-list">
       <div class="tag"
            :class="{ active: tag.active }"
-           v-for="(tag, index) in tags"
+           v-for="(tag, index) in getTags"
            :key="index"
-            @click="filterByTag(tag); toggleTagState(tag)" >
+            @click="filterByTag(tag); toggleActiveTag(tag)" >
         {{ tag.name }}
       </div>
     </div>
-    <div v-if="posts.length !== 0">
+    <div v-if="getPosts.length !== 0">
       <div class="posts-wrapper">
         <div class="post" v-for="post in posts" :key="post.id">
           <img :src="post.data.cover_image.url" :alt="post.data.cover_image.alt">
@@ -29,63 +29,64 @@
 
 <script>
 
+import { createNamespacedHelpers } from "vuex";
+
+const { mapActions, mapGetters } = createNamespacedHelpers("posts");
+
 export default {
   name: "PostsIndex",
   data() {
     return {
-      posts: [],
-      tags: []
+      posts: []
     }
   },
+  computed: {
+    ...mapGetters([
+        "getPosts",
+        "getTags",
+        "getFilteredPosts"
+    ])
+  },
   methods: {
-    async getPosts() {
-      this.posts = await this.$prismic.client.getAllByType("post");
-      this.posts = this.sortPostsByDate(this.posts);
-    },
-    async getTags() {
-      let tags = await this.$prismic.client.getTags();
-
-      let self = this;
-      const createTagsObjects = function() {
-        tags.forEach(tag => {
-          self.tags.push({
-            name: tag,
-            "active": false
-          });
-        });
+    ...mapActions([
+        "setPosts",
+        "setTags",
+        "filterPostsBy",
+        "toggleActiveTag"
+    ]),
+    async fetchPosts() {
+      if(this.getPosts.length === 0) {
+        let response = await this.$prismic.client.getAllByType("post");
+        let sorted = this.sortPostsByDate(response);
+        this.setPosts(sorted);
       }
 
-      return createTagsObjects();
+      this.posts = this.getPosts;
+    },
+    async fetchTags() {
+      if(this.getTags.length === 0) {
+        let response = await this.$prismic.client.getTags();
+
+        this.setTags(response);
+      }
     },
     async filterByTag(tag) {
       if(!tag.active) {
-        this.posts = await this.$prismic.client.getAllByTag([tag.name]);
-        this.posts = this.sortPostsByDate(this.posts);
-      }
-      else
-        await this.getPosts();
-    },
-    toggleTagState(tag) {
-      const removeOtherActiveTag = () => {
-        let activeTag = this.tags.find(tag => tag.active === true);
+        this.filterPostsBy(tag);
 
-        if(activeTag && activeTag.name !== tag.name) {
-          activeTag.active = false;
-        }
-      }
-
-      removeOtherActiveTag();
-
-      tag.active = !tag.active;
+        let sorted = this.sortPostsByDate(this.getFilteredPosts);
+        this.posts = sorted;
+      } else
+        this.posts = this.getPosts;
     },
     sortPostsByDate(posts) {
       return posts
           .sort((a, b) => new Date(b.data.written_at) - new Date(a.data.written_at));
     }
   },
-  mounted() {
-    this.getPosts();
-    this.getTags();
+  async mounted() {
+    await this.fetchPosts();
+    await this.fetchTags();
   }
 }
 
