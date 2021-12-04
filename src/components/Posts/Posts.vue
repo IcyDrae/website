@@ -1,13 +1,13 @@
 <template>
   <div class="posts-section section">
     <h2><span>My latest posts</span></h2>
-    <div v-if="documents.length !== 0">
+    <div v-if="posts.length !== 0">
       <div class="posts-wrapper">
-        <div class="post" v-for="document in documents" :key="document.id">
-          <img :src="document.data.cover_image.url" :alt="document.data.cover_image.alt">
+        <div class="post" v-for="post in posts" :key="post.id">
+          <img :src="post.data.cover_image.url" :alt="post.data.cover_image.alt">
           <div class="content-wrapper">
-            <p class="date">{{ $prismic.asDate(document.first_publication_date) }}</p>
-            <p class="title">{{ document.data.title[0].text }}</p>
+            <p class="date">{{ $prismic.asDate(post.data.written_at) }}</p>
+            <p class="title">{{ post.data.title[0].text }}</p>
           </div>
         </div>
       </div>
@@ -31,7 +31,7 @@ export default {
     }
   },
   methods: {
-    async getContent() {
+    async getPosts() {
       this.response = await this.$prismic.client.getAllByType("post");
     }
   },
@@ -41,14 +41,14 @@ export default {
      *
      * @returns {*[]}
      */
-    documents() {
+    posts() {
       return this.response
           .slice(0, 4)
-          .sort((a, b) => new Date(b.first_publication_date) - new Date(a.first_publication_date));
+          .sort((a, b) => new Date(b.data.written_at) - new Date(a.data.written_at));
     }
   },
   mounted() {
-    this.getContent();
+    this.getPosts();
   }
 }
 

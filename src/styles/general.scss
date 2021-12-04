@@ -6,6 +6,11 @@
   box-sizing: border-box;
 }
 
+html {
+  /* Prevent page twitching when no scrollbar. */
+  padding-left: calc(100vw - 100%);
+}
+
 body {
   background-color: $backgroundColor;
   overflow-x: hidden;

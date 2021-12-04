@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-import Posts from "../components/Posts/Posts";
+import PostsIndex from "../components/Posts/PostsIndex";
 import PrivacyPolicy from "../components/Footer/PrivacyPolicy";
 import TermsAndConditions from "../components/Footer/TermsAndConditions";
 
@@ -13,7 +13,7 @@ const routes = [
   {
     path: '/posts',
     name: 'Posts',
-    component: Posts
+    component: PostsIndex
   },
   {
     path: '/privacy',
