@@ -31,7 +31,7 @@
 
     .intro-right {
         img {
-            width: 500px;
+            width: 40vw;
         }
     }
 
@@ -109,9 +109,17 @@
 }
 
 @media only screen and (min-width: 992px) {
-    .intro-section .intro-left {
-        .intro-description {
-            font-size: 24px;
+    .intro-section {
+        .intro-left {
+            .intro-description {
+                font-size: 24px;
+            }
+        }
+
+        .intro-right {
+            img {
+                width: 400px;
+            }
         }
     }
 }

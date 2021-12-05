@@ -18,7 +18,7 @@
         </div>
       </div>
       <div v-if="!isMobile()" class="intro intro-right">
-        <img src="@/assets/taxi-function-code-plate.png" alt="">
+        <img src="@/assets/abstract-108.png" alt="An icon of an atom.">
       </div>
     </div>
 </template>
