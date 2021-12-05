@@ -1,0 +1,30 @@
+.post-detail-wrapper {
+  max-width: 60%;
+  margin: 0 auto;
+
+  .post-intro {
+    text-align: left;
+    margin: 3rem 0;
+
+    > * {
+      margin: 10px 0;
+    }
+  }
+
+  .post-body {
+    text-align: left;
+
+    p {
+      margin: 50px 0;
+    }
+
+    ul, ol {
+      list-style-position: inside;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}

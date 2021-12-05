@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import PostsIndex from "../components/Posts/PostsIndex";
+import PostDetail from "../components/Posts/PostDetail";
 import PrivacyPolicy from "../components/Footer/PrivacyPolicy";
 import TermsAndConditions from "../components/Footer/TermsAndConditions";
 
@@ -14,6 +15,11 @@ const routes = [
     path: '/posts',
     name: 'Posts',
     component: PostsIndex
+  },
+  {
+    path: '/posts/:slug',
+    name: 'PostDetail',
+    component: PostDetail
   },
   {
     path: '/privacy',
