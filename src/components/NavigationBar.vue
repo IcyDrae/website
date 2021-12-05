@@ -4,7 +4,7 @@
 
     <div class="navigation-links">
       <router-link :to="{ name: 'Posts' }">Blog</router-link>
-      <a href="mailto:test.com">Contact</a>
+      <a href="mailto:hey@dev-handbook.net">Contact</a>
     </div>
   </div>
 </template>
@@ -14,7 +14,3 @@ export default {
   name: "NavigationBar"
 }
 </script>
-
-<style scoped>
-
-</style>

@@ -6,17 +6,11 @@
         </div>
         <div class="intro-description">
           <p>I am Ray, a Software Engineer with love for the Web, Linux & Infrastructure.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ex explicabo facere ipsam necessitatibus nihil, optio porro quis tempore voluptatem.</p>
+          <p>This is <u>Dev Handbook</u>, a place where I share my side projects, writings & new things I'm learning.</p>
         </div>
         <div class="technologies">
-          <h3>Here are some tools I enjoy using:</h3>
-          <p> > Vue.js</p>
-          <p> > Symfony/PHP >=7.4</p>
-          <p> > SCSS</p>
-          <p> > Git</p>
-          <p> > Ubuntu/CentOS/macOS</p>
-          <p> > Docker</p>
-          <p> > Nginx</p>
+          <h3>I enjoy working with these tools:</h3>
+          <p v-for="(technology, index) in technologies" :key="index"> > {{ technology }}</p>
         </div>
       </div>
     </div>
@@ -28,6 +22,15 @@ export default {
   name: 'Intro',
   data() {
     return {
+      technologies: [
+          "Vue.js",
+          "Symfony/PHP",
+          "SCSS",
+          "Git",
+          "Ubuntu/CentOS/macOS",
+          "Docker",
+          "Nginx"
+      ]
     }
   }
 }

@@ -35,8 +35,7 @@
             overflow: hidden;
             clip-path: rect(0, 900px, 0, 0);
             animation:
-                    noise-animation-1 0.5s infinite linear alternate-reverse,
-                    enlargement 0.5s infinite linear alternate-reverse;
+                    glitchNoise 0.5s infinite linear alternate-reverse;
             position: absolute;
         }
     }
