@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 5rem;
+  padding: 3rem;
 
   a {
     text-decoration: none;
@@ -17,6 +17,20 @@
 
   .navigation-links {
     display: flex;
-    gap: 3rem;
+    gap: 1rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .navigation-bar {
+    .navigation-links {
+      gap: 3rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .navigation-bar {
+    padding: 2rem 5rem;
   }
 }

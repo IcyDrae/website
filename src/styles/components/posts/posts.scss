@@ -1,9 +1,6 @@
 .posts-section {
 
   h2 {
-    margin: 3rem 0;
-    text-align: left;
-
     span {
       @include gradientBackground(transparent 18px, #3b8d99, #aa4b6b);
     }

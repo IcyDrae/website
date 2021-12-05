@@ -5,6 +5,7 @@
     z-index: 0;
     /* animation: moveInfinitely 30s linear infinite; */
     cursor: default;
+    font-size: 14px;
     text-transform: uppercase;
 
     p {
@@ -26,5 +27,11 @@
     }
     100% {
         top: -100%;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .repeating-words-container {
+        font-size: 16px;
     }
 }

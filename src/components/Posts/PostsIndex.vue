@@ -1,6 +1,6 @@
 <template>
   <div class="posts-section section">
-    <h2><span>Dev Notebook</span></h2>
+    <h2 class="section-headline"><span>Dev Notebook</span></h2>
     <div class="tags-list">
       <div class="tag"
            :class="{ active: tag.active }"

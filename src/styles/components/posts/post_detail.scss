@@ -1,5 +1,5 @@
 .post-detail-wrapper {
-  max-width: 60%;
+  max-width: 70%;
   margin: 0 auto;
 
   .post-intro {
@@ -12,6 +12,7 @@
   }
 
   .post-body {
+    font-size: 14px;
     text-align: left;
 
     p {
@@ -26,5 +27,15 @@
   img {
     max-width: 100%;
     height: auto;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .post-detail-wrapper {
+    max-width: 60%;
+
+    .post-body {
+      font-size: 16px;
+    }
   }
 }

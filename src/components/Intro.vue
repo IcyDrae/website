@@ -17,7 +17,7 @@
           <p> > Nginx</p>
         </div>
       </div>
-      <div class="intro intro-right">
+      <div v-if="!isMobile()" class="intro intro-right">
         <img src="@/assets/taxi-function-code-plate.png" alt="">
       </div>
     </div>

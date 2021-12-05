@@ -1,6 +1,6 @@
 <template>
   <div class="posts-section section">
-    <h2><span>My latest posts</span></h2>
+    <h2 class="section-headline"><span>My latest posts</span></h2>
     <div v-if="posts.length !== 0">
       <div class="posts-wrapper">
         <PostCard v-for="post in posts"

@@ -3,11 +3,12 @@
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
+    text-align: left;
 
     a {
       color: white;
       text-decoration: none;
-      padding: 1rem 3rem;
+      padding: 1rem;
     }
   }
 }

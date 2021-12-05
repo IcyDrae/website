@@ -7,25 +7,42 @@
 html {
   /* Prevent page twitching when no scrollbar. */
   padding-left: calc(100vw - 100%);
+
+  body {
+    background-color: $backgroundColor;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+
+    #app {
+      font-family: $fontFamily;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-align: center;
+      color: $white;
+      max-width: 1680px;
+      height: 100%;
+      margin: 0 auto;
+
+      .section {
+        padding: 3rem;
+
+        .section-headline {
+          font-size: 20px;
+          margin: 1rem 0;
+          text-align: left;
+        }
+      }
+    }
+  }
 }
 
-body {
-  background-color: $backgroundColor;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-}
-
-#app {
-  font-family: $fontFamily;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: $white;
-  max-width: 1680px;
-  height: 100%;
-  margin: 0 auto;
-
-  .section {
+@media only screen and (min-width: 992px) {
+  #app .section {
     padding: 3rem 5rem;
+
+    .section-headline {
+      font-size: 24px;
+      margin: 3rem 0;
+    }
   }
 }

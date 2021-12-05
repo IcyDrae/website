@@ -1,6 +1,6 @@
 <template>
   <div class="projects-section section">
-    <h2><span>These are some of my projects</span></h2>
+    <h2 class="section-headline"><span>These are some of my projects</span></h2>
     <div class="projects-wrapper">
       <a v-for="repository in repositories"
          :href="repository.html_url"

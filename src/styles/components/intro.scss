@@ -1,21 +1,15 @@
-@import "../animations";
-
 .intro-section {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
-    align-items: center;
-
-    .intro {
-        width: 50%;
-    }
+    align-items: flex-start;
 
     .intro-left {
         text-align: left;
 
         .hello {
             margin: 50px 0;
-            font-size: 86px;
+            font-size: 11vw;
             text-transform: uppercase;
             //letter-spacing: 30px;
             letter-spacing: 20px;
@@ -24,10 +18,6 @@
             text-shadow: -3px 0 rgb(255, 0, 255);
             clip-path: rect(0, 900px, 0, 0);
             //animation: noise-animation 0.2s infinite linear alternate-reverse;
-        }
-
-        .intro-description {
-            font-size: 26px;
         }
 
         .technologies {
@@ -45,7 +35,7 @@
         }
     }
 
-    .intro-left .hello:after {
+    /*.intro-left .hello:after {
         //content: attr(data-text);
         text-shadow: 5px 0 rgb(0, 17, 255);
         overflow: hidden;
@@ -74,7 +64,7 @@
         font-weight: 500;
         position: absolute;
         left: 20px;
-    }
+    }*/
 
     .main-section-container {
         z-index: -1;
@@ -97,3 +87,31 @@
     }
 }
 
+@media only screen and (min-width: 768px) {
+    .intro-section {
+        flex-direction: row;
+        align-items: center;
+
+        .intro {
+            width: 50%;
+        }
+
+        .intro-left {
+            .hello {
+                font-size: 86px;
+            }
+
+            .intro-description {
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .intro-section .intro-left {
+        .intro-description {
+            font-size: 24px;
+        }
+    }
+}
