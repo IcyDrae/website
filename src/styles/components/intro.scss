@@ -1,23 +1,22 @@
 .intro-section {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: flex-start;
 
     .intro-left {
         text-align: left;
 
         .hello {
-            margin: 50px 0;
-            font-size: 11vw;
-            text-transform: uppercase;
-            //letter-spacing: 30px;
-            letter-spacing: 20px;
-            font-weight: 500;
+            .hello-text {
+                margin: 50px 0;
+                font-size: 11vw;
+                text-transform: uppercase;
+                letter-spacing: 20px;
+                font-weight: 500;
 
-            text-shadow: -3px 0 rgb(255, 0, 255);
-            clip-path: rect(0, 900px, 0, 0);
-            //animation: noise-animation 0.2s infinite linear alternate-reverse;
+                text-shadow: -3px 0 rgb(255, 0, 255);
+                clip-path: rect(0, 900px, 0, 0);
+            }
         }
 
         .technologies {
@@ -29,42 +28,18 @@
         }
     }
 
-    .intro-right {
-        img {
-            width: 40vw;
+    .intro-left .hello {
+        .hello-text:before {
+            content: attr(data-text);
+            text-shadow: 5px 0 rgb(199, 70, 70);
+            overflow: hidden;
+            clip-path: rect(0, 900px, 0, 0);
+            animation:
+                    noise-animation-1 0.5s infinite linear alternate-reverse,
+                    enlargement 0.5s infinite linear alternate-reverse;
+            position: absolute;
         }
     }
-
-    /*.intro-left .hello:after {
-        //content: attr(data-text);
-        text-shadow: 5px 0 rgb(0, 17, 255);
-        overflow: hidden;
-        clip-path: rect(0, 0, 0, 0);
-        //animation: noise-animation-1 0.2s infinite linear alternate-reverse;
-
-        font-size: 124px;
-        text-transform: uppercase;
-        letter-spacing: 30px;
-        font-weight: 500;
-        position: absolute;
-        left: 18px;
-    }
-
-    .intro-left .hello:before {
-        //content: attr(data-text);
-        text-shadow: 5px 0 rgb(199, 70, 70);
-        overflow: hidden;
-        clip-path: rect(0, 900px, 0, 0);
-        //animation: noise-animation-2 0.8s infinite linear alternate-reverse,
-        //enlargement 0.5s infinite linear alternate-reverse;
-
-        font-size: 124px;
-        text-transform: uppercase;
-        letter-spacing: 30px;
-        font-weight: 500;
-        position: absolute;
-        left: 20px;
-    }*/
 
     .main-section-container {
         z-index: -1;
@@ -96,8 +71,8 @@
             width: 50%;
         }
 
-        .intro-left {
-            .hello {
+        .intro-left .hello {
+            .hello-text {
                 font-size: 86px;
             }
 
@@ -113,12 +88,6 @@
         .intro-left {
             .intro-description {
                 font-size: 24px;
-            }
-        }
-
-        .intro-right {
-            img {
-                width: 400px;
             }
         }
     }

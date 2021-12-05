@@ -1,7 +1,9 @@
 <template>
     <div class="intro-section section">
       <div class="intro intro-left">
-        <p class="hello" data-text="hello">Hello</p>
+        <div class="hello">
+          <p class="hello-text" data-text="hello">Hello</p>
+        </div>
         <div class="intro-description">
           <p>I am Ray, a Software Engineer with love for the Web, Linux & Infrastructure.</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ex explicabo facere ipsam necessitatibus nihil, optio porro quis tempore voluptatem.</p>
@@ -16,9 +18,6 @@
           <p> > Docker</p>
           <p> > Nginx</p>
         </div>
-      </div>
-      <div v-if="!isMobile()" class="intro intro-right">
-        <img src="@/assets/abstract-108.png" alt="An icon of an atom.">
       </div>
     </div>
 </template>

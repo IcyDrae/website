@@ -14,14 +14,6 @@
     100% { clip: rect(91px, 9999px, 98px, 0) }
 }
 
-@keyframes noise-animation-2 {
-    0% { left: 1px; clip: rect(65px, 9999px, 119px, 0) }
-    25% { left: 4px; clip: rect(79px, 9999px, 19px, 0) }
-    50% {  left: 2px; clip: rect(68px, 9999px, 11px, 0) }
-    75% { left: -4px; clip: rect(95px, 9999px, 53px, 0) }
-    100% { left: -1px; clip: rect(31px, 9999px, 149px, 0) }
-}
-
 @keyframes enlargement {
     0% { transform: scaleY(1) skewX(0deg); }
     10% { opacity: 0; }
