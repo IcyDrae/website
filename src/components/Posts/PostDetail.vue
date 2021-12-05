@@ -1,5 +1,5 @@
 <template>
-  <div class="post-detail-wrapper">
+  <div class="post-detail-wrapper" v-if="post != null">
     <div class="post-intro">
       <PrismicText class="title" :field="post.data.title" wrapper="h1"/>
       <p class="date">{{ $prismic.asDate(post.data.written_at) }}</p>
@@ -17,15 +17,27 @@ const { mapGetters } = createNamespacedHelpers("posts");
 
 export default {
   name: "PostDetail",
+  data() {
+    return {
+      post: null,
+    }
+  },
   computed: {
     ...mapGetters([
         "getPosts"
-    ]),
-    post: function() {
-      return this.getPosts.find(post => post.id === this.$route.params.id);
-    }
+    ])
   },
-  mounted() {
+  async beforeMount() {
+    const setPost = async () => {
+      if(this.getPosts.length === 0) {
+        let response = await this.$prismic.client.getByUID("post", this.$route.params.uid);
+
+        this.post = response;
+      } else
+        this.post = this.getPosts.find(post => post.uid === this.$route.params.uid);
+    };
+
+    await setPost();
   }
 }
 </script>

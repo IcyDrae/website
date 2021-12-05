@@ -47,6 +47,24 @@ export default {
         "getFilteredPosts"
     ])
   },
+  async mounted() {
+    await this.fetchPosts();
+    await this.fetchTags();
+  },
+  /**
+   * Used to disable any active tag.
+   *
+   * @param to
+   * @param from
+   * @param next
+   */
+  beforeRouteLeave(to, from, next) {
+    let activeTag = this.getTags.find(tag => tag.active === true);
+    if(activeTag)
+      this.toggleActiveTag(activeTag);
+
+    next();
+  },
   methods: {
     ...mapActions([
         "setPosts",
@@ -83,10 +101,6 @@ export default {
       return posts
           .sort((a, b) => new Date(b.data.written_at) - new Date(a.data.written_at));
     }
-  },
-  async mounted() {
-    await this.fetchPosts();
-    await this.fetchTags();
   }
 }
 

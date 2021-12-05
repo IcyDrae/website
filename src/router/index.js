@@ -17,7 +17,7 @@ const routes = [
     component: PostsIndex
   },
   {
-    path: '/posts/:slug',
+    path: '/posts/:uid',
     name: 'PostDetail',
     component: PostDetail
   },

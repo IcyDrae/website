@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{ name: 'PostDetail', params: { slug: post.slugs[0], id: post.id } }">
+  <router-link :to="{ name: 'PostDetail', params: { uid: post.uid } }">
     <div class="post">
       <img :src="post.data.cover_image.url" :alt="post.data.cover_image.alt">
       <div class="content-wrapper">
