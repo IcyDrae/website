@@ -6,11 +6,27 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <script id="Cookiebot"
+            src="https://consent.cookiebot.com/uc.js"
+            data-cbid="93a950e8-fe76-44c8-b377-011b130c2e46"
+            data-blockingmode="auto"
+            type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D2R7SGVDNP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-D2R7SGVDNP', {
+            'anonymize_ip': true
+        });
+    </script>
   </head>
   <body>
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
+    <script id="CookieDeclaration" src="https://consent.cookiebot.com/93a950e8-fe76-44c8-b377-011b130c2e46/cd.js" type="text/javascript" async></script>
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
