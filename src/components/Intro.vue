@@ -5,7 +5,7 @@
           <p class="hello-text" data-text="hello">Hello</p>
         </div>
         <div class="intro-description">
-          <p>I am Ray, a Software Engineer with love for the Web, Linux & Infrastructure.</p>
+          <p>I am Ray, a Software Engineer with a love for the Web, Linux & Infrastructure.</p>
           <p>This is <u>Dev Handbook</u>, a place where I share my side projects, writings & new things I'm learning.</p>
         </div>
         <div class="technologies">

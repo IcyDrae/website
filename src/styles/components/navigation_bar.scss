@@ -25,6 +25,10 @@
   .navigation-bar {
     .navigation-links {
       gap: 3rem;
+
+      a {
+        font-size: 18px;
+      }
     }
   }
 }

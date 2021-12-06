@@ -29,6 +29,7 @@
     }
 
     .intro-left .hello {
+        font-family: $fontFamilySecondary;
         .hello-text:before {
             content: attr(data-text);
             text-shadow: 5px 0 rgb(199, 70, 70);
