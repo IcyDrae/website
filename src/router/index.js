@@ -3,7 +3,7 @@ import Home from '../views/Home.vue'
 import PostsIndex from "../components/Posts/PostsIndex";
 import PostDetail from "../components/Posts/PostDetail";
 import PrivacyPolicy from "../components/Footer/PrivacyPolicy";
-import TermsAndConditions from "../components/Footer/TermsAndConditions";
+import Copyright from "../components/Footer/Copyright";
 
 const routes = [
   {
@@ -27,9 +27,9 @@ const routes = [
     component: PrivacyPolicy
   },
   {
-    path: '/terms-conditions',
-    name: 'TermsAndConditions',
-    component: TermsAndConditions
+    path: '/copyright',
+    name: 'Copyright',
+    component: Copyright
   }
 ]
 
