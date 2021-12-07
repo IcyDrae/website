@@ -6,7 +6,7 @@
 
 This is the source code for my personal website, done with Vue.js 3 and lots of SCSS.
 It makes a request to the GitHub API to fetch repositories and also uses [Prismic](https://prismic.io/)
-as a Headless CMS for the blog posts.
+as a Headless CMS for the blog posts. Hosted on [Netlify](https://www.netlify.com/).
 
 ## License
 [GPLv3](LICENSE)
