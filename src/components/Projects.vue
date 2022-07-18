@@ -19,7 +19,7 @@
       </a>
     </div>
     <div class="cta-wrapper">
-      <a class="cta" href="https://github.com/MatrixEternal" target="_blank">See more</a>
+      <a class="cta" :href="`https://github.com/${username}`" target="_blank">See more</a>
     </div>
   </div>
 </template>
@@ -32,7 +32,8 @@ export default {
   name: "Projects",
   data() {
     return {
-      repositories: Array
+      repositories: Array,
+      username: this.$store.state.GITHUB_USERNAME
     };
   },
   async mounted() {
@@ -40,7 +41,7 @@ export default {
   },
   methods: {
     fetchRepositories: async function() {
-      let url = "https://api.github.com/search/repositories?q=user:MatrixEternal&sort=stars&order=desc&per_page=6";
+      let url = `https://api.github.com/search/repositories?q=user:${this.username}&sort=stars&order=desc&per_page=6`;
 
       try {
         let repositories = await axios.get(url);
