@@ -6,6 +6,9 @@ export default {
         this.isMobile;
     },
     methods: {
+        /**
+         * @returns boolean
+         */
         isMobile() {
             return screen.width <= 768;
         }

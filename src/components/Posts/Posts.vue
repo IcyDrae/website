@@ -19,6 +19,7 @@
 
 <script>
 
+import blog from "../../services/blog/index";
 import PostCard from "./PostCard";
 
 export default {
@@ -33,7 +34,7 @@ export default {
   },
   methods: {
     async getPosts() {
-      this.response = await this.$prismic.client.getAllByType("post");
+      this.response = await blog.getPosts();
     }
   },
   computed: {

@@ -25,6 +25,8 @@
 
 <script>
 
+import blog from "../../services/blog/index";
+
 import PostCard from "./PostCard";
 import { createNamespacedHelpers } from "vuex";
 
@@ -74,7 +76,7 @@ export default {
     ]),
     async fetchPosts() {
       if(this.getPosts.length === 0) {
-        let response = await this.$prismic.client.getAllByType("post");
+        let response = await blog.getPosts();
         let sorted = this.sortPostsByDate(response);
         this.setPosts(sorted);
       }
@@ -83,7 +85,7 @@ export default {
     },
     async fetchTags() {
       if(this.getTags.length === 0) {
-        let response = await this.$prismic.client.getTags();
+        let response = await blog.getTags();
 
         this.setTags(response);
       }
