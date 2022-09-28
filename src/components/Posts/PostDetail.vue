@@ -1,11 +1,11 @@
 <template>
   <div class="post-detail-wrapper" v-if="post != null">
     <div class="post-intro">
-      <PrismicText class="title" :field="post.data.title" wrapper="h1"/>
+      <h1 class="title">{{ post.data.title[0].text }}</h1>
       <p class="date">{{ blog.asDate(post.data.written_at) }}</p>
     </div>
     <img :src="post.data.cover_image.url" :alt="post.data.cover_image.alt">
-    <PrismicRichText class="post-body" :field="post.data.body"/>
+    <div class="post-body" v-html="blog.asHTML(post.data.body)"></div>
   </div>
 </template>
 
@@ -13,16 +13,11 @@
 
 import blog from "../../services/blog/index";
 import { createNamespacedHelpers } from "vuex";
-import { PrismicText, PrismicRichText } from '@prismicio/vue';
 
 const { mapGetters } = createNamespacedHelpers("posts");
 
 export default {
   name: "PostDetail",
-  components: {
-    PrismicText,
-    PrismicRichText
-  },
   data() {
     return {
       blog: blog,
