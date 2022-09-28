@@ -1,4 +1,4 @@
-import prismic from '../prismic/index';
+import prismic from "@/services/prismic";
 
 var provider = prismic,
     providerClient = prismic.client;

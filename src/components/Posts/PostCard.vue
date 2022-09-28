@@ -12,7 +12,7 @@
 
 <script>
 
-import blog from "../../services/blog";
+import blog from "@/services/blog";
 
 export default {
   name: "PostCard",

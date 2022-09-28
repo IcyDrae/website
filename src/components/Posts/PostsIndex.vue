@@ -25,9 +25,8 @@
 
 <script>
 
-import blog from "../../services/blog/index";
-
-import PostCard from "./PostCard";
+import blog from "@/services/blog";
+import PostCard from "@/components/Posts/PostCard.vue";
 import { createNamespacedHelpers } from "vuex";
 
 const { mapActions, mapGetters } = createNamespacedHelpers("posts");

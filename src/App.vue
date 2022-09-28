@@ -6,17 +6,13 @@
 
 <script>
 
-import NavigationBar from "./components/NavigationBar";
-import Footer from "./components/Footer/Footer";
+import NavigationBar from "@/components/NavigationBar.vue";
+import Footer from "@/components/Footer/Footer.vue";
 
 export default {
   components: {
     NavigationBar,
     Footer
-  },
-  data() {
-    return {
-    }
   }
 };
 
@@ -24,6 +20,6 @@ export default {
 
 <style lang="scss">
 
-@import "./styles/index.scss";
+@import "@/styles/index.scss";
 
 </style>

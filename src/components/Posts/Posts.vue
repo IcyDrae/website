@@ -19,8 +19,8 @@
 
 <script>
 
-import blog from "../../services/blog/index";
-import PostCard from "./PostCard";
+import blog from "@/services/blog";
+import PostCard from "@/components/Posts/PostCard.vue";
 
 export default {
   name: "Posts",

@@ -1,9 +1,9 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-import PostsIndex from "../components/Posts/PostsIndex";
-import PostDetail from "../components/Posts/PostDetail";
-import PrivacyPolicy from "../components/Footer/PrivacyPolicy";
-import Copyright from "../components/Footer/Copyright";
+import { createRouter, createWebHistory } from "vue-router"
+import Home from "@/views/Home.vue"
+import PostsIndex from "@/components/Posts/PostsIndex.vue";
+import PostDetail from "@/components/Posts/PostDetail.vue";
+import PrivacyPolicy from "@/components/Footer/PrivacyPolicy.vue";
+import Copyright from "@/components/Footer/Copyright.vue";
 
 const routes = [
   {

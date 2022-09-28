@@ -9,10 +9,10 @@
 
 <script>
 
-import RepeatingWords from "../components/RepeatingWords.vue"
-import Intro from "../components/Intro.vue"
-import Projects from "../components/Projects.vue";
-import Posts from "../components/Posts/Posts.vue";
+import RepeatingWords from "@/components/RepeatingWords.vue"
+import Intro from "@/components/Intro.vue"
+import Projects from "@/components/Projects.vue";
+import Posts from "@/components/Posts/Posts.vue";
 
 export default {
   name: "Home",

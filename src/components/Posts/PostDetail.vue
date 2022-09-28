@@ -11,7 +11,7 @@
 
 <script>
 
-import blog from "../../services/blog/index";
+import blog from "@/services/blog";
 import { createNamespacedHelpers } from "vuex";
 
 const { mapGetters } = createNamespacedHelpers("posts");
