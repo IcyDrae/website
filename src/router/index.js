@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router"
-import Home from "@/views/Home.vue"
+import Homepage from "@/components/Homepage/Homepage.vue"
 import PostsIndex from "@/components/Posts/PostsIndex.vue";
 import PostDetail from "@/components/Posts/PostDetail.vue";
 import PrivacyPolicy from "@/components/Footer/PrivacyPolicy.vue";
@@ -8,8 +8,8 @@ import Copyright from "@/components/Footer/Copyright.vue";
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'Homepage',
+    component: Homepage
   },
   {
     path: '/posts',

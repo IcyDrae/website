@@ -1,6 +1,6 @@
 <template>
   <div class="navigation-bar">
-    <router-link class="logo" :to="{ name: 'Home' }">R</router-link>
+    <router-link class="logo" :to="{ name: 'Homepage' }">R</router-link>
 
     <div class="navigation-links">
       <router-link :to="{ name: 'Posts' }">Blog</router-link>
