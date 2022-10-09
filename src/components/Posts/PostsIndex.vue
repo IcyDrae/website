@@ -25,7 +25,7 @@
 
 <script>
 
-import blog from "@/services/blog";
+import blogService from "@/services/blog";
 import PostCard from "@/components/Posts/PostCard.vue";
 import { createNamespacedHelpers } from "vuex";
 
@@ -49,7 +49,7 @@ export default {
     ])
   },
   async mounted() {
-    await this.fetchPosts();
+    this.posts = this.getPosts;
     await this.fetchTags();
   },
   /**
@@ -61,7 +61,8 @@ export default {
    */
   beforeRouteLeave(to, from, next) {
     let activeTag = this.getTags.find(tag => tag.active === true);
-    if(activeTag)
+
+    if (activeTag)
       this.toggleActiveTag(activeTag);
 
     next();
@@ -73,18 +74,9 @@ export default {
         "filterPostsBy",
         "toggleActiveTag"
     ]),
-    async fetchPosts() {
-      if(this.getPosts.length === 0) {
-        let response = await blog.getPosts();
-        let sorted = this.sortPostsByDate(response);
-        this.setPosts(sorted);
-      }
-
-      this.posts = this.getPosts;
-    },
     async fetchTags() {
       if(this.getTags.length === 0) {
-        let response = await blog.getTags();
+        let response = await blogService.getTags();
 
         this.setTags(response);
       }
@@ -93,14 +85,10 @@ export default {
       if(!tag.active) {
         this.filterPostsBy(tag);
 
-        let sorted = this.sortPostsByDate(this.getFilteredPosts);
+        let sorted = blogService.sortByDate(this.getFilteredPosts);
         this.posts = sorted;
       } else
         this.posts = this.getPosts;
-    },
-    sortPostsByDate(posts) {
-      return posts
-          .sort((a, b) => new Date(b.data.written_at) - new Date(a.data.written_at));
     }
   }
 }

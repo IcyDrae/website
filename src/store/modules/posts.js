@@ -12,7 +12,7 @@ export default {
         },
         filterPostsBy(state, payload) {
             state.filteredPosts = state.posts.filter(post => post.tags.some(tag => {
-                return tag === payload.name
+                return tag == payload.name
             }));
         },
         setTags: function(state, payload) {

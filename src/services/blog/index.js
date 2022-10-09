@@ -3,7 +3,7 @@ import prismic from "@/services/prismic";
 var provider = prismic,
     providerClient = prismic.client;
 
-const blog = {
+const blogService = {
     getPosts: () => providerClient.getAllByType("post"),
     getPostById: (id) => providerClient.getByUID("post", id),
     getTags: () => providerClient.getTags(),
@@ -11,7 +11,12 @@ const blog = {
     /**
      * Used to display rich text as HTML.
      */
-    asHTML: (content) => provider.asHTML(content)
+    asHTML: (content) => provider.asHTML(content),
+    /**
+     * @param {Array<Object>} posts 
+     * @returns {Array<Object>}
+     */
+    sortByDate: (posts) => posts.sort((a, b) => new Date(b.data.written_at) - new Date(a.data.written_at))
 };
 
-export default blog;
+export default blogService;
