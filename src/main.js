@@ -5,9 +5,10 @@ import store from "@/store"
 import mixins from "@/plugins/mixins";
 import blogService from "@/services/blog";
 
-(async function setPostsInStore() {
+let fetchedPosts = blogService.getPosts();
+
+(async function persistPosts() {
     let postsInStore = await store.getters["posts/getPosts"];
-    let fetchedPosts = blogService.getPosts();
 
     if (postsInStore.length === 0) {
         store.dispatch("posts/setPosts", fetchedPosts);

@@ -11,7 +11,12 @@ const blogService = {
     /**
      * Used to display rich text as HTML.
      */
-    asHTML: (content) => provider.asHTML(content)
+    asHTML: (content) => provider.asHTML(content),
+    /**
+     * @param {Array<Object>} posts 
+     * @returns {Array<Object>}
+     */
+    sortByDate: (posts) => posts.sort((a, b) => new Date(b.data.written_at) - new Date(a.data.written_at))
 };
 
 export default blogService;

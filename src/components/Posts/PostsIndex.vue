@@ -50,6 +50,10 @@ export default {
   },
   async mounted() {
     this.posts = await this.getPosts;
+
+    let filtered = blogService.sortByDate(this.posts);
+    this.setPosts(filtered);
+
     await this.fetchTags();
   },
   /**
@@ -84,14 +88,10 @@ export default {
       if(!tag.active) {
         this.filterPostsBy(tag);
 
-        let sorted = this.sortPostsByDate(this.getFilteredPosts);
+        let sorted = blogService.sortByDate(this.getFilteredPosts);
         this.posts = sorted;
       } else
         this.posts = this.getPosts;
-    },
-    sortPostsByDate(posts) {
-      return posts
-          .sort((a, b) => new Date(b.data.written_at) - new Date(a.data.written_at));
     }
   }
 }
