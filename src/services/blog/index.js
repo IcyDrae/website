@@ -3,7 +3,7 @@ import prismic from "@/services/prismic";
 var provider = prismic,
     providerClient = prismic.client;
 
-const blog = {
+const blogService = {
     getPosts: () => providerClient.getAllByType("post"),
     getPostById: (id) => providerClient.getByUID("post", id),
     getTags: () => providerClient.getTags(),
@@ -14,4 +14,4 @@ const blog = {
     asHTML: (content) => provider.asHTML(content)
 };
 
-export default blog;
+export default blogService;

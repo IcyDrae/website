@@ -19,8 +19,10 @@
 
 <script>
 
-import blog from "@/services/blog";
 import PostCard from "@/components/Posts/PostCard.vue";
+import { createNamespacedHelpers } from "vuex";
+
+const { mapGetters } = createNamespacedHelpers("posts");
 
 export default {
   name: "Posts",
@@ -32,12 +34,10 @@ export default {
       response: []
     }
   },
-  methods: {
-    async getPosts() {
-      this.response = await blog.getPosts();
-    }
-  },
   computed: {
+	...mapGetters([
+		"getPosts"
+    ]),
     /**
      * Filter the first 4 by publication date in descending order.
      *
@@ -49,8 +49,8 @@ export default {
           .sort((a, b) => new Date(b.data.written_at) - new Date(a.data.written_at));
     }
   },
-  mounted() {
-    this.getPosts();
+  async mounted() {
+    this.response = await this.getPosts;
   }
 }
 

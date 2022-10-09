@@ -25,7 +25,7 @@
 
 <script>
 
-import blog from "@/services/blog";
+import blogService from "@/services/blog";
 import PostCard from "@/components/Posts/PostCard.vue";
 import { createNamespacedHelpers } from "vuex";
 
@@ -49,7 +49,7 @@ export default {
     ])
   },
   async mounted() {
-    await this.fetchPosts();
+    this.posts = await this.getPosts;
     await this.fetchTags();
   },
   /**
@@ -73,18 +73,9 @@ export default {
         "filterPostsBy",
         "toggleActiveTag"
     ]),
-    async fetchPosts() {
-      if(this.getPosts.length === 0) {
-        let response = await blog.getPosts();
-        let sorted = this.sortPostsByDate(response);
-        this.setPosts(sorted);
-      }
-
-      this.posts = this.getPosts;
-    },
     async fetchTags() {
       if(this.getTags.length === 0) {
-        let response = await blog.getTags();
+        let response = await blogService.getTags();
 
         this.setTags(response);
       }
