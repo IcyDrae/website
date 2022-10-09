@@ -30,12 +30,12 @@ export default {
     ])
   },
   async beforeMount() {
-		await this.findPost();
+		this.findPost();
   },
 	methods: {
-		async findPost() {
+		findPost() {
 			let uid = this.$route.params.uid;
-			let postsInStore = await this.getPosts;
+			let postsInStore = this.getPosts;
 
 			this.post = postsInStore.find(post => post.uid == uid);
 		}

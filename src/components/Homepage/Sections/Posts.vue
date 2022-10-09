@@ -40,8 +40,8 @@ export default {
 		"getPosts"
     ]),
   },
-  async mounted() {
-    this.posts = await this.getPosts;
+  mounted() {
+    this.posts = this.getPosts;
 		this.posts = blogService.sortByDate(this.posts).slice(0, 4);
   }
 }

@@ -49,11 +49,7 @@ export default {
     ])
   },
   async mounted() {
-    this.posts = await this.getPosts;
-
-    let filtered = blogService.sortByDate(this.posts);
-    this.setPosts(filtered);
-
+    this.posts = this.getPosts;
     await this.fetchTags();
   },
   /**
@@ -65,7 +61,8 @@ export default {
    */
   beforeRouteLeave(to, from, next) {
     let activeTag = this.getTags.find(tag => tag.active === true);
-    if(activeTag)
+
+    if (activeTag)
       this.toggleActiveTag(activeTag);
 
     next();
