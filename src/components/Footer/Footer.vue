@@ -3,17 +3,22 @@
     <div class="footer-links-wrapper">
       <a :href="`https://github.com/${this.$store.state.GITHUB_USERNAME}`" target="_blank">GitHub</a>
       <router-link :to="{ name: 'PrivacyPolicy' }">Privacy Policy</router-link>
-      <router-link :to="{ name: 'Copyright' }">Copyright</router-link>
+      <router-link :to="{ name: 'Attributions' }">Attributions</router-link>
+    </div>
+    <div class="copyright-container">
+      Copyright 2021-{{ copyrightYear }}
+      <a :href="`https://github.com/${this.$store.state.GITHUB_USERNAME}`" target="_blank">{{ this.$store.state.GITHUB_USERNAME }}</a>
     </div>
   </footer>
 </template>
 
 <script>
 export default {
-  name: "Footer"
+  name: "Footer",
+  computed: {
+    copyrightYear: function() {
+      return new Date().getFullYear();
+    }
+  }
 }
 </script>
-
-<style scoped>
-
-</style>

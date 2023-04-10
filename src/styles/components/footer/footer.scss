@@ -11,10 +11,21 @@
       padding: 1rem;
     }
   }
+
+  .copyright-container {
+    text-align: left;
+    padding: 1rem;
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
 }
 
 @media only screen and (min-width: 768px) {
-  .footer-section .footer-links-wrapper {
+  .footer-section .footer-links-wrapper,
+  .copyright-container {
     a {
       font-size: 18px;
     }

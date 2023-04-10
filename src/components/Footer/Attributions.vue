@@ -9,6 +9,12 @@
 
 <script>
 export default {
-  name: "Copyright"
+  name: "Attributions"
 }
 </script>
+
+<style scoped>
+  a {
+    color: blue;
+  }
+</style>

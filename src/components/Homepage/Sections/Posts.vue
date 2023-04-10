@@ -37,8 +37,8 @@ export default {
   },
   computed: {
 	...mapGetters([
-		"getPosts"
-    ]),
+    "getPosts"
+  ]),
   },
   mounted() {
     this.posts = this.getPosts;

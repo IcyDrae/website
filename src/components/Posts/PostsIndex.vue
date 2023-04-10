@@ -69,7 +69,6 @@ export default {
   },
   methods: {
     ...mapActions([
-        "setPosts",
         "setTags",
         "filterPostsBy",
         "toggleActiveTag"
