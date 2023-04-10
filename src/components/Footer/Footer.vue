@@ -6,8 +6,9 @@
       <router-link :to="{ name: 'Attributions' }">Attributions</router-link>
     </div>
     <div class="copyright-container">
-      Copyright 2021-{{ copyrightYear }}
+      Copyright &copy; 2021-{{ copyrightYear }}
       <a :href="`https://github.com/${this.$store.state.GITHUB_USERNAME}`" target="_blank">{{ this.$store.state.GITHUB_USERNAME }}</a>
+      . All rights reserved.
     </div>
   </footer>
 </template>
