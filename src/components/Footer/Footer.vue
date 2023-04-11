@@ -1,6 +1,7 @@
 <template>
   <footer class="footer-section section">
     <div class="footer-links-wrapper">
+      <a class="buy-me-a-coffee-link" href="https://www.buymeacoffee.com/reard" target="_blank">Buy Me a Coffee</a>
       <a :href="`https://github.com/${this.$store.state.GITHUB_USERNAME}`" target="_blank">GitHub</a>
       <router-link :to="{ name: 'PrivacyPolicy' }">Privacy Policy</router-link>
       <router-link :to="{ name: 'Attributions' }">Attributions</router-link>
