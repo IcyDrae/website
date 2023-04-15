@@ -13,7 +13,7 @@
     <div v-if="getPosts.length !== 0">
       <div class="posts-wrapper">
         <PostCard v-for="post in posts"
-                  :key="post.id"
+                  :key="post.metadata.slug"
                   :post="post"></PostCard>
       </div>
     </div>
@@ -50,7 +50,7 @@ export default {
   },
   async mounted() {
     this.posts = this.getPosts;
-    await this.fetchTags();
+    this.fetchTags();
   },
   /**
    * Used to disable any active tag.
@@ -73,11 +73,9 @@ export default {
         "filterPostsBy",
         "toggleActiveTag"
     ]),
-    async fetchTags() {
+    fetchTags() {
       if(this.getTags.length === 0) {
-        let response = await blogService.getTags();
-
-        this.setTags(response);
+        this.setTags(blogService.getTags());
       }
     },
     async filterByTag(tag) {

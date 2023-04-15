@@ -1,10 +1,10 @@
 <template>
-  <router-link :to="{ name: 'PostDetail', params: { uid: post.uid } }">
+  <router-link :to="{ name: 'PostDetail', params: { uid: post.metadata.slug } }">
     <div class="post">
-      <img v-if="!isMobile()" :src="post.data.cover_image.url" :alt="post.data.cover_image.alt">
+      <img v-if="!isMobile()" :src="coverImageFile" :alt="post.metadata.coverImage.Alt">
       <div class="content-wrapper">
-        <p class="date">{{ blogService.asDate(post.data.written_at) }}</p>
-        <p class="title">{{ post.data.title[0].text }}</p>
+        <p class="date">{{ blogService.asDate(post.metadata.date) }}</p>
+        <p class="title">{{ post.metadata.title }}</p>
       </div>
     </div>
   </router-link>
@@ -24,7 +24,8 @@ export default {
   },
   data() {
     return {
-      blogService: blogService
+      blogService: blogService,
+      coverImageFile: require(`../../../blog/posts/cover_images/${this.post.metadata.coverImage.fileName}`)
     }
   }
 }

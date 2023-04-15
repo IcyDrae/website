@@ -1,0 +1,22 @@
+{
+    "tags": [
+        "php",
+        "productivity"
+    ],
+    "posts": [
+        {
+            "fileName": "6+ months project",
+            "title": "What I learned after spending 6+ months doing a side project",
+            "slug": "what-i-learned-after-spending-6-months-doing-a-side-project",
+            "date": "Thu Dec 09 2021 20:00:00 GMT+0100 (Central European Standard Time)",
+            "coverImage": {
+                "fileName": "6-months-project.png",
+                "alt": ""
+            },
+            "tags": [
+                "php",
+                "productivity"
+            ]
+        }
+    ]
+}

@@ -4,7 +4,7 @@
     <div v-if="posts.length !== 0">
       <div class="posts-wrapper">
         <PostCard v-for="post in posts"
-                  :key="post.id"
+                  :key="post.metadata.slug"
                   :post="post"></PostCard>
       </div>
       <div class="cta-wrapper">
@@ -38,7 +38,7 @@ export default {
   computed: {
 	...mapGetters([
     "getPosts"
-  ]),
+  ])
   },
   mounted() {
     this.posts = this.getPosts;

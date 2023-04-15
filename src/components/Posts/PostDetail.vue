@@ -1,43 +1,43 @@
 <template>
   <div class="post-detail-wrapper" v-if="post != null">
-    <div class="post-intro">
-      <h1 class="title">{{ post.data.title[0].text }}</h1>
-      <p class="date">{{ blogService.asDate(post.data.written_at) }}</p>
-    </div>
-    <img :src="post.data.cover_image.url" :alt="post.data.cover_image.alt">
-    <div class="post-body" v-html="blogService.asHTML(post.data.body)"></div>
+    <component class="post-body" :is="PostFile"></component>
   </div>
 </template>
 
 <script>
 
-import blogService from "@/services/blog";
 import { createNamespacedHelpers } from "vuex";
-
+import blogService from "@/services/blog";
 const { mapGetters } = createNamespacedHelpers("posts");
+import { defineAsyncComponent } from 'vue'
 
 export default {
   name: "PostDetail",
   data() {
     return {
       blogService: blogService,
-      post: null,
+      post: null
     }
   },
   computed: {
     ...mapGetters([
-        "getPosts"
-    ])
+      "getPosts"
+    ]),
+    PostFile: function() {
+      return defineAsyncComponent(() => this.post.component);
+    },
+    coverImageFile: function() {
+      return require(`../../../blog/posts/cover_images/${this.post.metadata.coverImage.fileName}`);
+    }
   },
-  async beforeMount() {
+  beforeMount() {
 		this.findPost();
   },
 	methods: {
 		findPost() {
 			let uid = this.$route.params.uid;
-			let postsInStore = this.getPosts;
 
-			this.post = postsInStore.find(post => post.uid == uid);
+			this.post = this.getPosts.find(post => post.metadata.slug == uid);
 		}
 	}
 }

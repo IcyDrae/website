@@ -21,4 +21,4 @@ persistPosts().then(() => {
         .use(router)
         .mixin(mixins)
         .mount('#app');
-})
+});

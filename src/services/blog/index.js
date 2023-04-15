@@ -1,22 +1,29 @@
-import prismic from "@/services/prismic";
-
-var provider = prismic,
-    providerClient = prismic.client;
+import BlogIndex from "../../../blog/index.json";
 
 const blogService = {
-    getPosts: () => providerClient.getAllByType("post"),
-    getPostById: (id) => providerClient.getByUID("post", id),
-    getTags: () => providerClient.getTags(),
-    asDate: (date) => provider.asDate(date),
-    /**
-     * Used to display rich text as HTML.
-     */
-    asHTML: (content) => provider.asHTML(content),
+    getPosts: async function() {
+        let posts = [];
+
+        await this.getPostsIndex().forEach(async (post, index) => {
+            posts[index] = {
+                metadata: post,
+                component: import(`../../../blog/posts/${post.fileName}.md`)
+            };
+        });
+
+        return posts;
+    },
+    getPostsIndex: () => BlogIndex["posts"],
+    getPostById: (id) => {},
+    getTags: () => BlogIndex["tags"],
+    asDate: (date) => new Date(date),
     /**
      * @param {Array<Object>} posts 
      * @returns {Array<Object>}
      */
-    sortByDate: (posts) => posts.sort((a, b) => new Date(b.data.written_at) - new Date(a.data.written_at))
+    sortByDate: function(posts) {
+        return posts.sort((a, b) => new Date(b.metadata.date) - new Date(a.metadata.date))
+    }
 };
 
 export default blogService;
