@@ -5,8 +5,7 @@
 # Personal site
 
 This is the source code for my personal website, written in Vue.js 3 and SCSS.
-It makes a request to the GitHub API to fetch repositories and also uses [Prismic](https://prismic.io/) (external)
-as a Headless CMS for the blog posts. Hosted on [Netlify](https://www.netlify.com/) (external).
+It makes a request to the GitHub API to fetch repositories and also uses local markdown files for the blog posts. Hosted on [Netlify](https://www.netlify.com/) (external).
 
 ## License
 [GPLv3](LICENSE)
