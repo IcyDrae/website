@@ -1,7 +1,9 @@
 {
     "tags": [
         "php",
-        "productivity"
+        "productivity",
+        "code",
+        "clean-code"
     ],
     "posts": [
         {
@@ -11,10 +13,25 @@
             "date": "Thu Dec 09 2021 20:00:00 GMT+0100 (Central European Standard Time)",
             "coverImage": {
                 "fileName": "6-months-project.png",
-                "alt": ""
+                "alt": "Cover image showing palm leaves."
             },
             "tags": [
                 "php",
+                "productivity"
+            ]
+        },
+        {
+            "fileName": "Write code, not comments",
+            "title": "Write code, not comments: The art of self-explanatory programming",
+            "slug": "write-code-not-comments",
+            "date": "Fri Aug 04 2023 20:00:00 GMT+0100 (Central European Standard Time)",
+            "coverImage": {
+                "fileName": "write-code-not-comments.jpg",
+                "alt": "City at night from the top."
+            },
+            "tags": [
+                "code",
+                "clean-code",
                 "productivity"
             ]
         }
