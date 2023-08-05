@@ -1,8 +1,6 @@
-# Write code, not comments: The art of self-explanatory programming.
+# Write code, not comments: The art of self-explanatory programming
 
 Friday August 04 2023 20:00:00 GMT+0100 (Central European Standard Time)
-
-First draft.
 
 ![City at night from the top.](./cover_images/write-code-not-comments.jpg)
 
@@ -77,7 +75,6 @@ Notice that the method names state precisely what they do. That is one of the ch
 Avoid writing unnecessary comments by writing clean code instead. Remember that comments do not serve a single purpose to the program, but to you and your fellow developers. They exist for informative/descriptive purposes in specific cases.
 
 It is better to not have to write comments, than to have to.
-
 
 ---
 
