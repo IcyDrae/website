@@ -1,5 +1,5 @@
 .post-detail-wrapper {
-  max-width: 70%;
+  max-width: 90%;
   margin: 0 auto;
 
   .post-intro {
@@ -27,7 +27,7 @@
     }
 
     ol {
-      margin: 30px;
+      margin: 15px;
     }
     
     a {
@@ -50,6 +50,10 @@
 
       h1 {
         font-size: 34px;
+      }
+
+      ol {
+        margin: 30px;
       }
     }
   }

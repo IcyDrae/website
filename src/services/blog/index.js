@@ -16,7 +16,7 @@ const blogService = {
     getPostsIndex: () => BlogIndex["posts"],
     getPostById: (id) => {},
     getTags: () => BlogIndex["tags"],
-    asDate: (date) => new Date(date),
+    asDate: (date) => date,
     /**
      * @param {Array<Object>} posts 
      * @returns {Array<Object>}
