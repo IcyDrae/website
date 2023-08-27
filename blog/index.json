@@ -4,7 +4,8 @@
         "productivity",
         "code",
         "clean-code",
-        "infrastructure"
+        "infrastructure",
+        "functions"
     ],
     "posts": [
         {
@@ -50,6 +51,22 @@
                 "clean-code",
                 "productivity",
                 "infrastructure"
+            ]
+        },
+        {
+            "fileName": "How to design a function",
+            "title": "How to design a function",
+            "slug": "how-to-design-a-function",
+            "date": "Sun Aug 27 2023 20:00:00 GMT+0100 (Central European Standard Time)",
+            "coverImage": {
+                "fileName": "how-to-design-a-function.jpg",
+                "alt": "Black motorcycle."
+            },
+            "tags": [
+                "code",
+                "clean-code",
+                "productivity",
+                "functions"
             ]
         }
     ]
