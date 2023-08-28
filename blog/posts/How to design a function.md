@@ -82,7 +82,7 @@ After having tested our function with multiple examples for multiple scenarios, 
 The recipe reads as follows:
 
 1. Come up with the signature
-2. Come up with the purpose
+2. Define the purpose
 3. Simulate it
 4. Create examples
 5. Finally, code it based on all the above
