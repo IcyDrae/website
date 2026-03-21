@@ -68,6 +68,21 @@
                 "productivity",
                 "fundamentals"
             ]
+        },
+        {
+            "fileName": "Certificates",
+            "title": "Certificates",
+            "slug": "certificates",
+            "date": "Sat Mar 21 2026 20:00:00 GMT+0100 (Central European Standard Time)",
+            "coverImage": {
+                "fileName": "certificates.jpg",
+                "alt": "Certificates."
+            },
+            "tags": [
+                "certificates",
+                "productivity",
+                "fundamentals"
+            ]
         }
     ]
 }
