@@ -12,7 +12,8 @@
     "vue": "^3.0.0",
     "vue-markdown-loader": "^2.5.0",
     "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
+    "vuex": "^4.0.0-0",
+    "web-streams-polyfill": "^4.2.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^5.0.8",

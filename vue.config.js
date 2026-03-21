@@ -11,5 +11,12 @@ module.exports = {
         .options({
             raw: true
         });
+    },
+    configureWebpack: {
+        resolve: {
+            fallback: {
+                fs: false,
+            },
+        }
     }
 };
