@@ -1,17 +1,26 @@
-import BlogIndex from "../../../blog/index.json";
+import BlogIndex from "../../blog/index.json";
+
+const mdFiles = require.context("@/blog/posts", false, /\.md$/);
 
 const blogService = {
     getPosts: async function() {
-        let posts = [];
+    let posts = [];
 
-        await this.getPostsIndex().forEach(async (post, index) => {
-            posts[index] = {
-                metadata: post,
-                component: import(`../../../blog/posts/${post.fileName}.md`)
-            };
-        });
+    this.getPostsIndex().forEach((post, index) => {
+        const filePath = `./${post.fileName}.md`;
 
-        return posts;
+        if (!mdFiles.keys().includes(filePath)) {
+            console.error("Missing file:", filePath);
+            return;
+        }
+
+        posts[index] = {
+            metadata: post,
+            content: mdFiles(filePath)
+        };
+    });
+
+    return posts;
     },
     getPostsIndex: () => BlogIndex["posts"],
     getPostById: (id) => {},

@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       blogService: blogService,
-      coverImageFile: require(`../../../blog/posts/cover_images/${this.post.metadata.coverImage.fileName}`)
+      coverImageFile: require(`../../blog/posts/cover_images/${this.post.metadata.coverImage.fileName}`)
     }
   }
 }
