@@ -27,7 +27,7 @@ I also learned that different types of devices should be isolated into separate 
 This section focuses on the different network types that exist.
 
 #### WAN
-A WAN is a just a large number of LANs connected together.
+A WAN is just a large number of LANs connected together over long distances.
 
 #### LAN/WLAN
 A LAN is a just a network in a small, limited area. A WLAN is the same but the medium of transmission is waves(wireless).
