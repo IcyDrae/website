@@ -83,6 +83,21 @@
                 "productivity",
                 "fundamentals"
             ]
+        },
+        {
+            "fileName": "Proof of work - Cybersecurity",
+            "title": "Proof of work - Cybersecurity",
+            "slug": "proof-of-work-cybersecurity",
+            "date": "Sat Mar 23 2026 20:00:00 GMT+0100 (Central European Standard Time)",
+            "coverImage": {
+                "fileName": "cybersecurity.jpeg",
+                "alt": "Proof of work - Cybersecurity."
+            },
+            "tags": [
+                "cybersecurity",
+                "productivity",
+                "fundamentals"
+            ]
         }
     ]
 }
