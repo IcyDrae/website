@@ -4,36 +4,32 @@ Sat Mar 23 2026 20:00:00 GMT+0100 (Central European Standard Time)
 
 ![Cover image of a multi-monitor setup.](./cover_images/cybersecurity.jpeg)
 
-This post is my proof of work as I am trying to break into Cybersecurity. I am learning Networking, Cybersecurity Fundamentals, Linux, Bash and Cloud.
+This post is my proof of work as I am breaking into Cybersecurity. I am learning Networking, Cybersecurity Fundamentals, Linux, Bash, and Cloud.
 
 # 23 March 2026
 
-### Network security
+### Network Security
 
-Today I learned the basics of how networks are structured and why segmentation is important for security. This module talks about a high-level overview of networks and some measures to take to secure them. One of those measures is to separate networks from each other so an attacker cannot attack a big network all at once.
+Today I focused on network structure and segmentation. I practiced thinking like an attacker and considered how flat networks allow lateral movement, while smaller subnets (/25) slow attacks and make them easier to detect.
 
-By splitting networks into smaller subnets(e.g using /25) administrators can restrict communication between groups of devices. This makes attacks slower and more detectable.
+I reviewed device isolation strategies:
 
-I also learned that different types of devices should be isolated into separate networks such as:
+* Web Servers in a DMZ
+* Workstations limited to each other
+* Printers restricted from internet access
 
-- Web Servers(often placed in a Demilitarized Zone)
-- Workstations
-- Printers(they should not be connected to the internet)
+This helped me connect theory to practical security implications and attacker behavior.
+
+### Network Types
+
+* **WAN** – connects multiple LANs over long distances.
+* **LAN / WLAN** – small networks, wired or wireless; wireless adds extra attack surface.
+* **VPN** – secure connection over untrusted networks; types include site-to-site, remote access, and SSL VPN.
 
 ---
 
-### Network types
 
-This section focuses on the different network types that exist.
 
-#### WAN
-A WAN is just a large number of LANs connected together over long distances.
-
-#### LAN/WLAN
-A LAN is a just a network in a small, limited area. A WLAN is the same but the medium of transmission is waves(wireless).
-
-#### VPN
-A VPN (Virtual Private Network) is a secure connection that allows devices to communicate over an untrusted network (like the internet) as if they were part of a private network. There are three types of VPNs: a) Site-to-site VPN, b) Remote access VPN, c) SSL VPN
 
 
 
