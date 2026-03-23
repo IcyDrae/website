@@ -22,9 +22,26 @@ This helped me connect theory to practical security implications and attacker be
 
 ### Network Types
 
-* **WAN** – connects multiple LANs over long distances.
-* **LAN / WLAN** – small networks, wired or wireless; wireless adds extra attack surface.
-* **VPN** – secure connection over untrusted networks; types include site-to-site, remote access, and SSL VPN.
+**WAN** – connects multiple LANs over long distances.
+
+**LAN / WLAN** – small networks, wired or wireless; wireless adds extra attack surface.
+
+**VPN** – secure connection over untrusted networks; types include site-to-site, remote access, and SSL VPN.
+
+### Network Topologies
+
+I learned about different network topologies. Common types include:
+
+- Point-to-Point
+- Bus
+- Star
+- Ring
+- Mesh
+- Tree
+- Hybrid
+- Daisy Chain
+
+I thought about how each topology changes how devices talk to each other and how attackers might move across the network. For example, in a bus network, a single compromised device can affect all others, while in a star network, the central switch/router is a single point of failure.
 
 ---
 
