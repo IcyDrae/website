@@ -10,6 +10,7 @@ import { createNamespacedHelpers } from "vuex";
 import MarkdownIt from "markdown-it";
 import blogService from "@/services/blog";
 const { mapGetters } = createNamespacedHelpers("posts");
+import { useTitle } from "@vueuse/core";
 
 const md = new MarkdownIt();
 
@@ -50,6 +51,9 @@ export default {
 
       if (this.post) {
         this.rawMarkdown = this.post.content.default || this.post.content;
+
+        const title = useTitle('Dev Handbook');
+        title.value = 'Dev Handbook | ' + this.post.metadata.title  ;
       }
 		},
     processImages(html) {
