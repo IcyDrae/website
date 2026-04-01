@@ -189,6 +189,110 @@ Steps I took:
 
 In this challenge, I learned about enumeration using nmap, identifying open ports and services, and exploiting insecure services like Telnet that allow weak or no authentication.
 
+Next steps: Introduction to ARP
+
+# 28 March 2026 - 31 March 2026
+
+### Introduction to ARP
+
+- ARP purpose: ARP (Address Resolution Protocol) is used to map an IP address to a MAC address so a device can send data within the same network.
+- How it works: The sender broadcasts a request (“Who has this IP?”), and only the device with that IP responds with its MAC address.
+- Ethernet requirement: An IP packet must be encapsulated in an Ethernet frame, which requires the destination MAC address.
+- ARP cache: Devices store IP-to-MAC mappings temporarily (ARP cache), viewable with arp -a, to avoid repeated broadcasts.
+
+Next steps: Subnet Masks
+
+### Subnet Masks
+
+- The subnet mask determines whether communication is local or remote: if the destination IP matches the network portion, the host uses ARP; otherwise, it sends traffic to the default gateway (router).
+- A subnet is defined by a network ID (shared portion) and a host ID (unique part), with common masks like /24 (255.255.255.0) allowing up to 254 hosts per network.
+- Variable Length Subnet Masking (VLSM) improves efficiency by allowing different subnet sizes within the same network, reducing wasted IP addresses compared to fixed-length subnetting (FLSM).
+
+Next steps: Virtual Private Networks
+
+### Virtual Private Networks
+
+- A VPN creates an encrypted tunnel over the internet, allowing remote devices to securely access a private network as if they were locally connected, often receiving an internal IP address.
+- It relies on key components like a VPN client and server, encryption (e.g., AES, IPsec), and authentication methods to ensure secure communication and prevent data interception.
+- IPsec is the main secure protocol (using AH + ESP in transport or tunnel mode), while older protocols like PPTP exist but are considered insecure and largely deprecated.
+
+Next steps: Key Exchange Mechanisms
+
+### Key Exchange Mechanisms
+
+- Key exchange mechanisms allow two parties to securely agree on a shared secret over an insecure channel, forming the foundation for encrypted communication (e.g., TLS, VPNs).
+- Diffie-Hellman enables key exchange without prior secrets but is vulnerable to MITM attacks, while ECDH improves it with better speed and security; RSA is widely used for encryption, authentication, and digital signatures.
+- IKE combines these methods (DH, RSA, AES) to establish secure VPN tunnels, with main mode offering stronger security and aggressive mode trading some security for speed, often using pre-shared keys for authentication.
+
+Next steps: TCP/UDP Connections
+
+### TCP/UDP Connections
+
+- TCP is connection-oriented and reliable (ensures delivery, uses acknowledgments and retransmissions), while UDP is connectionless, faster, and used when speed matters more than reliability (e.g., streaming, gaming).
+- An IP packet consists of a header (routing, TTL, protocol, source/destination) and payload (actual data), with fields like IP ID and Record-Route helping analyze traffic and trace packet paths.
+- TCP segments include detailed control info (ports, sequence numbers, flags), while UDP sends simple datagrams; techniques like traceroute and concepts like spoofing rely on manipulating these packet behaviors.
+
+Next steps: Cryptography
+
+### Cryptography
+
+- Encryption protects data by transforming it into unreadable form using keys, with two main types: symmetric (same key, fast but key-sharing problem) and asymmetric (public/private keys, more secure but slower).
+- Symmetric algorithms like AES (modern standard) and DES/3DES (older, less secure) are used for bulk data encryption, while asymmetric methods like RSA and ECC enable secure key exchange, authentication, and digital signatures.
+- Cipher modes (e.g., CBC, CTR, GCM) define how data is encrypted in blocks, with modern modes like GCM providing both confidentiality and integrity, while older ones like ECB are insecure and should be avoided.
+
+Next steps: Daily HackTheBox challenge
+
+### Daily HackTheBox challenge
+
+The challenge is called fawn. The goal was to find an open service on the target machine and interact with it to retrieve the flag. I was connected to a ParrotOS VM through the HTB VPN.
+
+This time the open port was 21 (FTP), which is commonly misconfigured and can allow anonymous access.
+
+Steps I took:
+
+1. Enumeration - ping the target machine to confirm connectivity, then use `nmap -sV` to identify open ports and services.
+2. Discovered FTP running on port 21, so I connected using the `ftp` command.
+3. Logged in using the username `anonymous` with any password, since anonymous login was enabled.
+4. Used basic FTP commands like `ls` to list files and found `flag.txt`.
+5. Downloaded the file using `get flag.txt`, then read its contents locally and submitted it.
+
+In this challenge, I learned how to enumerate services with nmap, identify FTP, exploit anonymous login misconfigurations, and interact with FTP to navigate and download files.
+
+Next steps: Introduction to Routers
+
+### Introduction to Routers
+
+- Routers connect **different network IDs (subnets)** together. Unlike switches that forward traffic using **MAC addresses**, routers read the **destination IP address** and decide where to send the packet based on their **routing table**.
+- Every router interface belongs to a **different network** and therefore has its own **IP address**. The router checks its routing table to see whether the destination network is **directly connected** or if the packet must be forwarded to another router.
+- If the router doesn’t know where a packet should go, it uses a **default route** to forward it to an **upstream router (default gateway)**. Routers can even have **multiple default routes**, and they use a **metric value** to decide which path is preferred.
+
+Next steps: Network Address Translation
+
+### Network Address Translation
+
+- NAT (Network Address Translation) lets many devices inside a private network (like 192.168.x.x) share a single public IP address when accessing the internet. The router replaces the internal IP with its public WAN IP and keeps a table so responses can be sent back to the correct internal device.
+- Because of NAT, internal devices can browse the internet normally, but outside systems usually cannot initiate connections directly to them unless the router is configured to allow it. This is why servers behind NAT need special configuration.
+- There are different NAT types: static NAT (one public IP always maps to one internal device, often used with port forwarding), dynamic NAT (a pool of public IPs shared by internal devices), and PAT/regular NAT where many devices share one public IP using different ports.
+
+Next steps: Port Forwarding
+
+### Port Forwarding
+
+- Home routers block unsolicited incoming traffic by default, only allowing responses to connections that devices inside the network started. Port forwarding changes this behavior by allowing specific incoming traffic (for example `publicIP:8181`) to be redirected to a specific internal device and port (like `192.168.x.x:80`) so services such as cameras or remote access can work from the internet.
+- Port range forwarding opens many ports at once instead of configuring them individually, which is useful for applications like game servers that require multiple ports. Port triggering is more dynamic: when a device inside the network initiates traffic on a specific port (like FTP on port 21), the router temporarily allows related ports (like port 20) to come back in.
+- A SOHO DMZ forwards all unsolicited internet traffic to one internal device, effectively exposing it directly to the internet. This is extremely risky because that machine will constantly be probed and attacked, so it is generally avoided except for testing or controlled scenarios.
+
+Next steps: SOHO vs Enterprise
+
+### SOHO vs Enterprise
+
+- SOHO routers are compact, all-in-one devices that combine a router, switch, wireless access point, firewall, and DHCP server, designed for small networks of a few devices and managed via simple web interfaces. They are convenient but limited in power, bandwidth, and scalability.
+- Enterprise routers are robust, rack-mounted devices built for large-scale networks, supporting dozens or hundreds of connections, higher throughput, redundant power supplies, and advanced features like dynamic routing and VPNs. They separate roles like switching and wireless into dedicated devices for better performance.
+- Enterprise routers are configured through a command-line interface (e.g., Cisco IOS), requiring specialized knowledge and certifications like CCNA/CCNP. Despite the differences in size, complexity, and interfaces, both SOHO and enterprise routers fundamentally perform the same task: routing data between network segments.
+
+
+
+
 
 
 
