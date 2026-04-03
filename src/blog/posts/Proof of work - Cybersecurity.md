@@ -290,6 +290,81 @@ Next steps: SOHO vs Enterprise
 - Enterprise routers are robust, rack-mounted devices built for large-scale networks, supporting dozens or hundreds of connections, higher throughput, redundant power supplies, and advanced features like dynamic routing and VPNs. They separate roles like switching and wireless into dedicated devices for better performance.
 - Enterprise routers are configured through a command-line interface (e.g., Cisco IOS), requiring specialized knowledge and certifications like CCNA/CCNP. Despite the differences in size, complexity, and interfaces, both SOHO and enterprise routers fundamentally perform the same task: routing data between network segments.
 
+Next steps: Static Routing
+
+# 01 April 2026 - 07 April 2026
+
+### Static Routing
+
+- Every device on a TCP/IP network (routers and normal computers) has a routing table. This table tells the device where to send packets based on the destination IP address, deciding whether the traffic stays on the local network or gets sent to the default gateway.
+- Static routes are manually configured routes in a routing table. They never change automatically, which makes them simple and predictable, but also fragile because if a network path breaks, traffic will fail unless someone manually updates the route.
+- Routing tables include special routes like the default route (send unknown traffic to the gateway), local network routes (keep traffic inside the LAN), loopback routes (127.0.0.0/8 for internal communication), and multicast routes (224.x.x.x for one-to-many communication).
+
+Next steps: Dynamic Routing
+
+### Dynamic Routing
+
+- Large networks like the internet cannot rely on static routes because links fail, routers go down, and connections constantly change. Dynamic routing solves this by allowing routers to automatically update their routing tables and quickly restore network convergence when topology changes.
+- Dynamic routing protocols use metrics to determine the best path for traffic. These metrics can consider factors like hop count, bandwidth, MTU size, latency, and cost, allowing routers to choose more efficient routes instead of simply counting the number of routers along the path.
+- Dynamic routing protocols fall into two main categories: distance vector (older, shares entire routing tables periodically and converges slowly) and link state (modern, sends updates only when changes occur and converges faster). They also operate as either Interior Gateway Protocols (within one organization’s network) or Exterior Gateway Protocols between networks, with Border Gateway Protocol (BGP) being the primary protocol used to connect autonomous systems across the internet.
+
+Next steps: TCP and UDP
+
+### TCP and UDP
+
+- TCP is connection-oriented, ensuring reliable, ordered delivery of data.
+- UDP is connectionless, fast, and has minimal overhead with no delivery verification.
+- TCP uses a three-way handshake (SYN → SYN-ACK → ACK) to establish connections.
+
+Next steps: Traffic Types
+
+### Traffic Types
+
+- Network traffic is all data moving across a network at any moment, carried as binary signals and organized into PDUs such as frames, packets, or segments.
+- Traffic can carry voice, video, or data and is delivered using different transmission methods: unicast (one-to-one), multicast (one-to-many specific), broadcast (one-to-all), and anycast (one-to-nearest node).
+- Network technicians monitor and manage traffic to prevent congestion, latency, and security issues using tools and strategies like traffic monitoring, traffic shaping, load balancing, and bandwidth management.
+
+Next steps: Daily HackTheBox Challenge
+
+### Daily HackTheBox Challenge
+
+The challenge is called Dancing. The goal was to find an exposed SMB share on the target machine and retrieve the flag from it. I was connected to a ParrotOS VM through the HTB VPN.
+
+This time the open port was 445 (SMB), which allows shared access to files and resources over a network and is commonly found on Windows systems.
+
+Steps I took:
+
+- Enumeration - pinged the target machine to confirm connectivity, then used nmap -sV to identify open ports and services.
+- Discovered SMB running on port 445, so I used smbclient to list available shares on the target system.
+- Identified several shares including ADMIN$, C$, IPC$, and a custom share called WorkShares.
+- Attempted to access the shares without credentials and found that WorkShares allowed anonymous login due to misconfigured permissions.
+- Navigated the directories using ls and cd, found files belonging to users Amy.J and James.P.
+- Downloaded files using get, including flag.txt.
+- Read the file locally and submitted the flag.
+
+In this challenge, I learned how to enumerate SMB services, identify accessible shares, exploit anonymous access misconfigurations, and use smbclient to navigate and download files from a remote SMB share.
+
+Next steps: Next challenge
+
+### Next challenge
+
+The challenge is called Cap. The goal was to enumerate the machine, find a vulnerability in the web application, gain a foothold, and then escalate privileges to root. I was connected through my ParrotOS VM using the HTB VPN.
+
+This time the target had three open ports: 21 (FTP), 22 (SSH), and 80 (HTTP).
+
+Steps I took:
+
+- Enumeration – used nmap to scan the target machine and identify open ports and services. Found FTP, SSH, and a web server running on port 80.
+- Web exploration – visited the HTTP dashboard and noticed a feature that allowed downloading packet capture files. The capture IDs were sequential (/data/<id>), which led to discovering an IDOR vulnerability.
+- Packet analysis – accessed /data/0 to download another user's capture file and opened it in Wireshark. The capture contained plaintext FTP credentials.
+- Foothold – extracted the username and password from the FTP traffic (nathan / Buck3tH4TF0RM3!) and used them to log in to the machine via SSH.
+- Privilege escalation – ran linpeas to enumerate privilege escalation vectors and discovered that python3.8 had the cap_setuid capability.
+- Root access – exploited the capability by using Python to set the UID to 0 and spawn a root shell.
+
+In this challenge, I learned how to exploit IDOR vulnerabilities, analyze pcap files in Wireshark to extract credentials, and abuse Linux capabilities (cap_setuid) to escalate privileges to root.
+
+
+
 
 
 
