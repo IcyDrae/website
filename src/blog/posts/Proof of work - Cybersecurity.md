@@ -363,6 +363,42 @@ Steps I took:
 
 In this challenge, I learned how to exploit IDOR vulnerabilities, analyze pcap files in Wireshark to extract credentials, and abuse Linux capabilities (cap_setuid) to escalate privileges to root.
 
+Next steps: File Transfer Protocol
+
+### File Transfer Protocol
+
+- FTP (File Transfer Protocol) is a protocol used to transfer files between a client and a server over a network. It typically uses port 21 for client requests and port 20 for server responses.
+- FTP servers can allow normal user accounts or an anonymous login, which lets anyone access shared files (usually with read-only permissions). Clients can upload or download files using graphical FTP programs or command-line tools.
+- FTP is not secure because usernames, passwords, and data are transmitted in plaintext. Secure alternatives include SFTP or FTPS, which encrypt the connection to protect credentials and file transfers.
+
+Next steps: Telnet and SSH
+
+### Telnet and SSH
+
+- Telnet is an old protocol used to remotely access the command prompt of another computer over a network. It operates on TCP port 23 and allows users to log in with a username and password to run commands on a remote system.
+- Telnet is insecure because all communication, including usernames, passwords, and commands, is transmitted in plaintext and can easily be captured and read using tools like packet analyzers.
+- SSH (Secure Shell) is the modern replacement for Telnet. It provides the same remote command-line access but encrypts all traffic using cryptographic keys and runs on TCP port 22, making it much more secure for remote administration.
+
+Next steps: Daily Hack The Box challenge
+
+### Daily Hack The Box challenge
+
+The challenge is called Redeemer. The goal was to identify an exposed service on the target machine and interact with it to retrieve the flag. I was connected to my ParrotOS VM through the HTB platform.
+
+This time the open port was 6379, which is the default port for Redis, an in-memory key-value database often used for caching.
+
+Steps I took:
+
+- Enumeration - pinged the target to confirm connectivity, then used nmap -p- -sV to discover open ports and services.
+- Discovered Redis running on port 6379, so I connected using the redis-cli tool.
+- Used the info command to inspect the Redis server and identify the available database.
+- Selected the database using select 0 and listed all stored keys with keys *.
+Retrieved the value of the key containing the flag using get <key>.
+
+In this challenge, I learned how Redis works as an in-memory key-value database, how to connect to it using redis-cli, enumerate its contents, and extract stored data from exposed Redis instances.
+
+
+
 
 
 
