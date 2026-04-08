@@ -397,6 +397,35 @@ Retrieved the value of the key containing the flag using get <key>.
 
 In this challenge, I learned how Redis works as an in-memory key-value database, how to connect to it using redis-cli, enumerate its contents, and extract stored data from exposed Redis instances.
 
+Next steps: Another challenge
+
+### Another challenge
+
+Snapped.
+
+I started with enumeration and ran an nmap scan against the target. It
+showed two open ports: SSH (22) and HTTP (80). The web server redirected
+to snapped.htb, so I added the domain to /etc/hosts.
+
+After checking the website, nothing interesting appeared on the main
+page, so I fuzzed for subdomains using ffuf and discovered
+admin.snapped.htb. Visiting it showed an Nginx‑UI login page.
+
+Since I had no credentials, I fuzzed the /api endpoints and discovered
+/api/backup which returned a backup file. The response also contained an
+X‑Backup‑Security header with encoded values.
+
+Research showed this was CVE‑2026‑27944, which allows downloading a full
+backup and exposes the key needed to decrypt it. I decoded the values to
+get the key and IV, then used openssl to decrypt the nginx‑ui backup.
+
+Inside the decrypted archive I found a SQLite database containing user
+password hashes. I extracted the bcrypt hashes and cracked one of them
+with hashcat, revealing the password "linkinpark" for the user jonathan.
+
+Using these credentials I logged in via SSH and obtained a shell on the
+machine, allowing me to read the user flag. I was not able to escalate to
+root.
 
 
 
