@@ -427,13 +427,85 @@ Using these credentials I logged in via SSH and obtained a shell on the
 machine, allowing me to read the user flag. I was not able to escalate to
 root.
 
+# 08 April 2026 - 15 April 2026
 
+### Network Time Protocol
 
+- NTP and SNTP synchronize clocks across network devices using UDP port 123, which is important for things like authentication systems and consistent system timing.
+- NTP uses a hierarchical system called strata where stratum 0 devices (atomic clocks/GPS) are the most accurate and time synchronization becomes less precise down to stratum 15.
+- Security and precision improvements include NTS (adds TLS-based encryption to NTP) and PTP, which provides microsecond-level synchronization for high-precision environments like finance, telecom, and industrial systems.
 
+Next steps: Understanding DNS
 
+### Understanding DNS
 
+- DNS resolves human-readable domain names (FQDNs like www.example.com) into IP addresses so users don’t have to memorize numeric addresses.
+- An FQDN is structured as hostname + domain + top-level domain (e.g., www + example + .com), where each part helps DNS locate the correct server.
+- DNS uses a recursive lookup process (root → TLD → authoritative server) and caching to efficiently find and store IP addresses for faster future access.
 
+Next steps: Making TCP/IP Secure
 
+### Making TCP/IP Secure
+
+- The CIA triad defines the core goals of security: Confidentiality (protect data from unauthorized access), Integrity (ensure data is authentic and unchanged), and Availability (systems and data must be accessible when needed).
+- Confidentiality is mainly achieved through encryption, while integrity relies on mechanisms like hashes, certificates, and non-repudiation to verify data authenticity and prevent tampering.
+- Authentication verifies identity (e.g., username/password or smart cards) and authorization determines what actions an authenticated user is allowed to perform within a system.
+
+Next steps: Identification
+
+### Identification
+
+- Identity management relies on three core steps: identification (who the user is), authentication (proving identity, usually with something like a password), and authorization (what the user is allowed to do after logging in).
+- Multi-Factor Authentication (MFA) increases security by requiring more than one factor to verify identity, most commonly two factors (2FA).
+- The three main MFA factors are: something you know (password/PIN), something you have (token or smart card), and something you are (biometrics like fingerprint or face recognition).
+
+Next steps: Access Control
+
+### Access Control
+
+- Authentication verifies a user's identity (e.g., username, password, tokens), while authorization determines what actions the authenticated user is allowed to perform on resources.
+- Access Control Lists (ACLs) define permissions and restrictions for users or systems, controlling access to files, networks, and other resources.
+- The three main access control models are Mandatory Access Control (label-based access like "top secret"), Discretionary Access Control (resource owners assign permissions), and Role-Based Access Control (permissions assigned to groups or roles instead of individual users).
+
+Next steps: Single Sign-On (SSO)
+
+### Single Sign-On (SSO)
+
+- Single Sign-On (SSO) allows a user to authenticate once and gain access to multiple systems or services without logging in repeatedly, improving usability and security compared to managing separate credentials on each device.
+- In local networks, SSO is commonly implemented with Windows Active Directory, which creates a trusted domain using Kerberos authentication and allows computers joined to the domain to trust a centralized identity system.
+- For web and cloud applications, SAML-based SSO uses an Identity Provider (IdP) that authenticates the user and issues a token so multiple Service Providers (web apps) can trust the login without requiring separate authentication.
+
+Next steps: Switch Management
+
+### Switch Management
+
+- Managed switches allow configuration via web GUI, SSH, or console and provide advanced features, while unmanaged switches are simple plug-and-play devices with almost no configuration options.
+- To manage a switch through its web interface you must be on the same network as the switch’s IP address, often requiring setting a static IP on your computer.
+- Basic switch administration includes changing insecure default credentials, configuring IP settings (often disabling DHCP), and saving configuration backups so settings can be restored if something breaks.
+
+Next steps: Introduction to VLANs
+
+### Introduction to VLANs
+
+- VLANs (Virtual LANs) improve network security by splitting one physical switch into multiple smaller broadcast domains, preventing devices in different VLANs from communicating directly.
+- Creating a VLAN requires two steps: first create the VLAN ID, then assign specific switch ports to that VLAN so devices connected to those ports belong to that separate network segment.
+- Devices in different VLANs cannot communicate at Layer 2 unless routing is configured, allowing networks (e.g., guest Wi-Fi and POS systems) to stay isolated and protected.
+
+Next steps: Trunking
+
+### Trunking
+
+- VLAN trunking allows a single VLAN to span multiple switches so devices on different switches can still belong to the same logical network.
+- Trunk ports carry traffic from multiple VLANs by tagging frames with a VLAN ID (using IEEE 802.1Q) so switches know which VLAN each frame belongs to.
+- To extend a VLAN across switches you connect them with a trunk port and configure VLAN membership on both switches, enabling devices in the same VLAN to communicate across the network.
+
+Next steps: IDS vs IPS
+
+### IDS vs IPS
+
+- Firewall: sits at the network edge and blocks unwanted traffic from entering or leaving based on predefined rules.
+- IDS (Intrusion Detection System): monitors internal network traffic for suspicious activity and alerts administrators but does not take action.
+- IPS (Intrusion Prevention System): actively monitors and sits inline, detecting and automatically blocking or preventing malicious activity in real time.
 
 
 
