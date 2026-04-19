@@ -507,6 +507,51 @@ Next steps: IDS vs IPS
 - IDS (Intrusion Detection System): monitors internal network traffic for suspicious activity and alerts administrators but does not take action.
 - IPS (Intrusion Prevention System): actively monitors and sits inline, detecting and automatically blocking or preventing malicious activity in real time.
 
+Next steps: Proxy Servers
+
+# 19 April 2026 - 26 April 2026
+
+### Proxy Servers
+
+- Forward Proxy: sits between client and internet, hides the client, used for caching, filtering, and access control (common in schools and organizations).
+- Reverse Proxy: sits in front of servers, hides/protects them, handles load balancing, caching, encryption (HTTPS), and defense against attacks like DDoS.
+- Key Difference: forward proxy represents the client (client-aware), reverse proxy represents the server (client unaware); modern proxies often combine with VPNs or networks like Tor for anonymity.
+
+Next steps: Load Balancing
+
+### Load Balancing
+
+- Load Balancing Purpose: distributes incoming traffic across multiple servers to prevent overload, improve performance, and ensure high availability.
+- DNS Load Balancing: uses techniques like round robin and delegation to spread requests across servers, but has limitations due to caching and lack of real-time awareness.
+- Server-Side Load Balancing: uses a dedicated load balancer (hardware/software) to intelligently route traffic, monitor server health, support clustering, handle failover, and maintain session persistence.
+
+Next steps: Daily Hack The Box Challenge
+
+### Daily Hack The Box Challenge
+
+I went through the TwoMillion box step by step and it actually tied a lot of concepts together in a clean way.
+
+At the start, I enumerated the web app and found the old invite system. By looking at the JavaScript and deobfuscating it, I discovered hidden API endpoints. That led me to generate an invite code using a combination of ROT13 and Base64 decoding, which gave me access to register an account.
+
+Once inside, I focused on the API. By sending requests manually with curl and including my session cookie, I enumerated available endpoints. I found that the admin settings endpoint didn’t properly validate the is_admin check, so I was able to set my own user as admin just by sending a crafted JSON request.
+
+With admin access, I moved to the VPN generation endpoint. That’s where the command injection happened. The username parameter was passed into a shell command without proper sanitization, so I injected commands and got remote code execution. After setting up a listener on my machine, I got a reverse shell as www-data.
+
+From there, I did basic enumeration on the system and found a .env file containing database credentials. The password was reused for the admin user on the system, so I logged in via SSH as admin.
+
+For privilege escalation, I checked the kernel version and saw it was vulnerable to CVE-2023-0386. Since the machine had no internet, I understood I’d need to transfer the exploit manually. After compiling and running it locally, I escalated to root.
+
+What I learned from this:
+
+* How to properly enumerate APIs and abuse hidden endpoints instead of relying only on the UI
+* How small logic flaws (like improper validation) can lead to privilege escalation
+* How command injection works in real scenarios and how to turn it into a shell
+* The importance of local enumeration (files, creds, kernel version) after initial access
+* How kernel exploits like OverlayFS/FUSE vulnerabilities can be used when the system is outdated
+
+Overall, this box was a really good example of chaining multiple simple issues into full system compromise.
+
+
 
 
 
