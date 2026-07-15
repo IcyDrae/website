@@ -551,6 +551,8 @@ What I learned from this:
 
 Overall, this box was a really good example of chaining multiple simple issues into full system compromise.
 
+Next steps: 
+
 
 
 
