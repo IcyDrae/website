@@ -1,6 +1,4 @@
 <template>
-      <p>Width: {{ windowWidth }}</p>
-    <p>Mobile: {{ isMobile }}</p>
   <Mobile v-if="isMobile"></Mobile>
   <div v-else class="desktop">
     <NavigationBar></NavigationBar>
@@ -40,7 +38,7 @@ export default {
   methods: {
     checkScreenSize() {
       this.windowWidth = window.innerWidth
-      this.isMobile = window.innerWidth < 768;
+      this.isMobile = window.innerWidth < 1000;
     }
   }
 };
