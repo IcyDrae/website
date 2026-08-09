@@ -3,7 +3,7 @@
 
   h2 {
     span {
-      @include gradientBackground(transparent 18px, #f64f59, #12c2e9);
+      // @include gradientBackground(transparent 18px, #f64f59, #12c2e9);
     }
   }
 
@@ -16,18 +16,33 @@
 
     a {
       text-decoration: none;
-      color: $white;
+      color: $primary;
 
       .project {
+        position: relative;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        width: 250px;
-        min-height: 200px;
+        width: 200px;
+        height: 250px;
         margin: 2rem;
         padding: 1rem;
-        border: 1px solid $white;
+        border: 1px solid $primary;
         border-radius: 6px;
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0);
+            transition: background 0.25s ease;
+            pointer-events: none;
+            border-radius: inherit;
+        }
+
+        &:hover::after {
+          background: rgba($primary, 0.25);
+        }
 
         p {
           margin: 5px 0;
@@ -41,6 +56,10 @@
         .project-introduction {
           .project-description {
             font-size: 16px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+            overflow: hidden;
           }
         }
 
@@ -48,6 +67,9 @@
           display: flex;
           justify-content: flex-start;
           gap: 10px;
+
+          margin-top: auto;
+          flex-shrink: 0;
 
           img, p {
             align-self: center;

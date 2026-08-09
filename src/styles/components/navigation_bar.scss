@@ -6,11 +6,13 @@
 
   a {
     text-decoration: none;
-    color: $white;
+    color: $primary;
 
     &.logo {
+      color: $tertiary;
       width: 50px;
       font-size: 24px;
+      border-radius: 5px;
       @include gradientBackground(to right, #414345, #232526);
     }
   }

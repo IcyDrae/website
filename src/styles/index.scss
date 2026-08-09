@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lexend+Mega&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital,wght@0,300..700;1,300..700&display=swap');
 
 @import "variables";
 @import "mixins";
@@ -9,6 +8,8 @@
 @import "components/repeating_words";
 @import "components/intro";
 @import "components/cta_wrapper";
+@import "components/about_me.scss";
+@import "components/technologies.scss";
 @import "components/projects";
 @import "components/posts/post_card";
 @import "components/posts/posts";

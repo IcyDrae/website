@@ -1,16 +1,21 @@
 <template>
-    <div class="intro-section section">
-      <div class="intro intro-left">
+  <div class="intro-section section">
+    <div class="intro">
+      <div class="first">
+        <div class="statistics">
+          <p>5+ <span>years building software</span></p>
+          <p>10K+ <span>users supported</span></p>
+          <p>Microsoft & Google <span>certified</span></p>
+        </div>
         <div class="hello">
           <p class="hello-text" data-text="hello">Hello</p>
+          <div class="intro-description">
+            <p>_ It's Ray - a Software Developer moving toward Cybersecurity</p>
+          </div>
         </div>
-        <div class="intro-description">
-          <p>I am Ray, a Software Engineer with a love for the Web, Linux & Infrastructure.</p>
-          <p>This is <u>Dev Handbook</u>, a place where I share my side projects, writings & new things I'm learning.</p>
-        </div>
-        <div class="technologies">
-          <h3>I enjoy working with these tools:</h3>
-          <p v-for="(technology, index) in technologies" :key="index"> > {{ technology }}</p>
+      </div>
+        <div class="headshot">
+          <img src="../../../assets/Good portrait 2 pixelated.png" alt="">
         </div>
       </div>
     </div>
@@ -22,15 +27,7 @@ export default {
   name: 'Intro',
   data() {
     return {
-      technologies: [
-          "Vue.js",
-          "Symfony/PHP",
-          "SCSS",
-          "Git",
-          "Ubuntu/CentOS/macOS",
-          "Docker",
-          "Nginx"
-      ]
+
     }
   }
 }

@@ -9,7 +9,7 @@ html {
   padding-left: calc(100vw - 100%);
 
   body {
-    background-color: $backgroundColor;
+    background-color: $tertiary;
     overflow-x: hidden;
     scroll-behavior: smooth;
 
@@ -18,7 +18,7 @@ html {
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       text-align: center;
-      color: $white;
+      color: $primary;
       max-width: 1680px;
       height: 100%;
       margin: 0 auto;
@@ -28,9 +28,9 @@ html {
         padding: 3rem;
 
         .section-headline {
-          font-size: 20px;
+          font-size: 64px;
           margin: 1rem 0;
-          text-align: left;
+          text-align: center;
         }
       }
     }
@@ -41,8 +41,20 @@ html {
   html body #app .section {
     padding: 3rem 5rem;
 
+    .portfolio-paragraph {
+      margin: auto;
+      width: fit-content;
+      padding: 10px;
+      font-size: 18px;
+      font-weight: 500;
+      border: 1px solid $white;
+      border-radius: 25px;
+      background-color: $white;
+    }
+
     .section-headline {
-      font-size: 24px;
+      font-weight: 500;
+      font-size: 64px;
       margin: 3rem 0;
     }
   }

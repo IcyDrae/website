@@ -1,7 +1,8 @@
 <template>
   <div class="home">
-    <RepeatingWords></RepeatingWords>
     <Intro></Intro>
+    <AboutMe></AboutMe>
+    <Technologies></Technologies>
     <Projects></Projects>
     <Posts></Posts>
   </div>
@@ -9,16 +10,18 @@
 
 <script>
 
-import RepeatingWords from "@/components/RepeatingWords.vue"
 import Intro from "@/components/Homepage/Sections/Intro.vue"
+import AboutMe from "@/components/Homepage/Sections/AboutMe.vue"
+import Technologies from "@/components/Homepage/Sections/Technologies.vue"
 import Projects from "@/components/Homepage/Sections/Projects.vue";
 import Posts from "@/components/Homepage/Sections/Posts.vue";
 
 export default {
   name: "Homepage",
   components: {
-    RepeatingWords,
     Intro,
+    AboutMe,
+    Technologies,
     Projects,
     Posts,
   }

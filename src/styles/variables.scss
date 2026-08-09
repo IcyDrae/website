@@ -1,7 +1,11 @@
 
-$backgroundColor: #1E1E1E;
-$fontFamily: "Quicksand", sans-serif;
-$fontFamilySecondary: "Lexend Mega", sans-serif;
+$primary: #222222;
+$secondary: #7B7B7B;
+$tertiary: #F8F8F8;
+$white: #FFFFFF;
 
-$white: rgb(201, 209, 217);
-$black: #1E1E1E;
+$backgroundColor: #1E1E1E;
+
+$fontFamily: "Red Hat Mono", monospace;
+// TODO remove this one, I won't need it, use only mono everywhere :)!
+$fontFamilySecondary: "Red Hat Mono", monospace;

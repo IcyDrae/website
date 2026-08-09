@@ -3,44 +3,6 @@
     flex-direction: column;
     align-items: flex-start;
 
-    .intro-left {
-        text-align: left;
-
-        .hello {
-            .hello-text {
-                margin: 50px 0;
-                font-size: 11vw;
-                text-transform: uppercase;
-                letter-spacing: 20px;
-                font-weight: 500;
-
-                text-shadow: -3px 0 rgb(255, 0, 255);
-                clip-path: rect(0, 900px, 0, 0);
-            }
-        }
-
-        .technologies {
-            margin-top: 50px;
-
-            h3 {
-                margin: 10px 0;
-            }
-        }
-    }
-
-    .intro-left .hello {
-        font-family: $fontFamilySecondary;
-        .hello-text:before {
-            content: attr(data-text);
-            text-shadow: 5px 0 rgb(199, 70, 70);
-            overflow: hidden;
-            clip-path: rect(0, 900px, 0, 0);
-            animation:
-                    glitchNoise 0.5s infinite linear alternate-reverse;
-            position: absolute;
-        }
-    }
-
     .main-section-container {
         z-index: -1;
         font-size: 40px;
@@ -54,7 +16,7 @@
             text-align: left;
 
             span:first-of-type {
-                color: $backgroundColor;
+                color: $primary;
                 -webkit-text-stroke-color: white;
                 -webkit-text-stroke-width: 1px;
             }
@@ -65,19 +27,47 @@
 @media only screen and (min-width: 768px) {
     .intro-section {
         flex-direction: row;
-        align-items: center;
+        justify-content: space-around;
 
         .intro {
-            width: 50%;
-        }
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            justify-items: center;
+            gap: 120px;
 
-        .intro-left .hello {
-            .hello-text {
-                font-size: 86px;
+            .statistics {
+                display: flex;
+
+                p {
+                    width: 50%;
+                }
+                
+                span {
+                    display: inherit;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    color: $secondary;
+                }
             }
 
-            .intro-description {
-                font-size: 18px;
+            .headshot {
+                width: fit-content;
+                flex-shrink: 0;
+
+                img {
+                    display: block;
+                    width: 600px;
+                    height: auto;
+                    filter: grayscale(100%);
+                    border-radius: 25px;
+                }
+            }
+        }
+
+        .intro .hello {
+            .hello-text {
+                font-size: 160px;
             }
         }
     }
@@ -85,7 +75,7 @@
 
 @media only screen and (min-width: 992px) {
     .intro-section {
-        .intro-left {
+        .intro {
             .intro-description {
                 font-size: 24px;
             }

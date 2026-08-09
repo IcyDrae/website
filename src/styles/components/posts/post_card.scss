@@ -1,13 +1,11 @@
 .post {
-  min-width: 250px;
-  max-width: 350px;
+  width: 200px;
   min-height: 200px;
   margin: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  border: 1px solid white;
   border-radius: 6px;
   text-align: left;
 
@@ -33,7 +31,7 @@
 
   img {
     max-height: 300px;
-    width: 90%;
+    width: 100%;
     border-radius: 6px;
     object-fit: cover;
     margin-top: 10px;
@@ -46,19 +44,36 @@
 
 @media only screen and (min-width: 768px) {
   .post {
-    max-width: 650px;
-    height: 250px;
-    flex-direction: row;
+    width: 320px;
+    height: 320px;
+    flex-direction: column;
     justify-content: space-evenly;
 
-    .content-wrapper {
-      width: 50%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+
+    .title {
+      padding-bottom: 10px;
+    }
+
+    .tag {
+      background: $primary;
+      color: $tertiary !important;
+      border: 1px solid $primary;
+      width: fit-content;
+      padding-left: 10px;
+      padding-right: 10px;
+      text-align: center;
+      border-radius: 15px;
     }
 
     img {
-      height: 90%;
-      width: 40%;
+      height: 70%;
+      width: 100%;
       margin-top: 0;
+      border-radius: 20px;
     }
   }
 }

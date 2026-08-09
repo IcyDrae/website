@@ -1,15 +1,12 @@
 <template>
   <footer class="footer-section section">
     <div class="footer-links-wrapper">
-      <a class="buy-me-a-coffee-link" href="https://www.buymeacoffee.com/reard" target="_blank">Buy Me a Coffee</a>
       <a :href="`https://github.com/${this.$store.state.GITHUB_USERNAME}`" target="_blank">GitHub</a>
       <router-link :to="{ name: 'PrivacyPolicy' }">Privacy Policy</router-link>
       <router-link :to="{ name: 'Attributions' }">Attributions</router-link>
     </div>
-    <div class="copyright-container">
-      Copyright &copy; 2021-{{ copyrightYear }}
-      <a :href="`https://github.com/${this.$store.state.GITHUB_USERNAME}`" target="_blank">{{ this.$store.state.GITHUB_USERNAME }}</a>
-      . All rights reserved.
+    <div class="contact-footer">
+      <a href="mailto:icydrae@hotmail.com">icydrae@hotmail.com</a>
     </div>
   </footer>
 </template>

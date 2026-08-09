@@ -1,0 +1,51 @@
+.technologies {
+    padding: 100px 8%;
+
+    h1 {
+        font-size: 64px;
+        margin-bottom: 80px;
+    }
+
+    .technology-groups {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 70px 100px;
+    }
+
+    .technology-group {
+        h2 {
+            font-size: 24px;
+            margin-bottom: 25px;
+            color: $primary;
+        }
+
+        .technology-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+
+            span {
+                padding: 8px 14px;
+                border: 1px solid $secondary;
+                font-size: 16px;
+                border-radius: 4px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .technologies {
+        padding: 80px 30px;
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 50px;
+        }
+
+        .technology-groups {
+            grid-template-columns: 1fr;
+            gap: 50px;
+        }
+    }
+}

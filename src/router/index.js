@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router"
 import Homepage from "@/components/Homepage/Homepage.vue"
+import AboutMe from "@/components/Homepage/Sections/AboutMe.vue"
+import Technologies from "@/components/Homepage/Sections/Technologies.vue"
 import PostsIndex from "@/components/Posts/PostsIndex.vue";
 import PostDetail from "@/components/Posts/PostDetail.vue";
 import PrivacyPolicy from "@/components/Footer/PrivacyPolicy.vue";
@@ -15,6 +17,16 @@ const routes = [
     path: '/posts',
     name: 'Posts',
     component: PostsIndex
+  },
+  {
+    path: '/about',
+    name: 'AboutMe',
+    component: AboutMe
+  },
+  {
+    path: '/technologies',
+    name: 'Technologies',
+    component: Technologies
   },
   {
     path: '/posts/:uid',
@@ -38,8 +50,8 @@ const router = createRouter({
   routes,
   scrollBehavior (to, from, savedPosition) {
     return {
-      left: 0,
-      top: 0
+      el: to.hash,
+      behavior: 'smooth'
     }
   }
 })

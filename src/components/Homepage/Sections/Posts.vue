@@ -1,6 +1,9 @@
 <template>
-  <div class="posts-section section">
-    <h2 class="section-headline"><span>My latest posts</span></h2>
+  <div class="posts-section section" id="posts">
+    <p class="section-headline">
+      <p class="portfolio-paragraph">● Blogs</p>
+      <span>My latest posts</span>
+    </p>
     <div v-if="posts.length !== 0">
       <div class="posts-wrapper">
         <PostCard v-for="post in posts"

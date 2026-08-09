@@ -11,13 +11,13 @@
     font-family: $fontFamily;
     font-size: 14px;
     font-weight: 700;
-    color: $white;
-    border: 1px solid $white;
+    color: $primary;
+    border: 1px solid $primary;
     border-radius: 6px;
 
     &:hover {
-      background-color: #2b2b2b;
-      color: $white;
+      background-color: $secondary;
+      color: $tertiary;
     }
   }
 }
