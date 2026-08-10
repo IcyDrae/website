@@ -40,6 +40,42 @@
             border-radius: inherit;
         }
 
+        &::before {
+          content: "";
+          position: absolute;
+          z-index: 2;
+
+          top: 50%;
+          left: 50%;
+
+          width: 65px;
+          height: 65px;
+
+          transform: translate(-50%, -50%);
+
+          background-color: rgba($primary, 0.85);
+          background-image: url("@/assets/icons/arrow-up-right.svg");
+          background-size: 32px 32px;
+          background-position: center;
+          background-repeat: no-repeat;
+
+          border-radius: 50%;
+
+          opacity: 0;
+          transition:
+          opacity 0.25s ease,
+          transform 0.25s ease;
+        }
+
+        &:hover::after {
+            opacity: 1;
+        }
+
+        &:hover::before {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
         &:hover::after {
           background: rgba($primary, 0.25);
         }
