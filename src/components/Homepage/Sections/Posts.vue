@@ -1,9 +1,9 @@
 <template>
   <div class="posts-section section" id="posts">
-    <p class="section-headline">
+    <div class="section-headline">
       <p class="portfolio-paragraph">● Blogs</p>
       <span>My latest posts</span>
-    </p>
+    </div>
     <div v-if="posts.length !== 0">
       <div class="posts-wrapper">
         <PostCard v-for="post in posts"

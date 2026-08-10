@@ -1,9 +1,9 @@
 <template>
   <div class="projects-section section" id="projects">
-    <p class="section-headline">
+    <div class="section-headline">
       <p class="portfolio-paragraph">● Portfolio</p>
       <span>Projects</span>
-    </p>
+    </div>
     <div class="projects-wrapper">
       <a v-for="repository in repositories"
          :href="repository.html_url"
