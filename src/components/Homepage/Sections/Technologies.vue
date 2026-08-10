@@ -1,6 +1,8 @@
 <template>
   <div class="section technologies" id="technologies">
-    <h1>Technologies</h1>
+    <div class="section-headline">
+      <span>Technologies</span>
+    </div>
 
     <div class="technology-groups">
       <div class="technology-group">
