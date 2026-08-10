@@ -44,13 +44,37 @@ export default {
   },
   methods: {
     fetchRepositories: async function() {
+      const cacheKey = `github-repositories-${this.username}`;
+      const cacheDuration = 10 * 60 * 1000; // 10 minutes
+
+      const cached = localStorage.getItem(cacheKey);
+
+      if (cached) {
+        const { timestamp, repositories } = JSON.parse(cached);
+
+        const cacheIsValid = Date.now() - timestamp < cacheDuration;
+
+        if (cacheIsValid) {
+          this.repositories = repositories;
+          return;
+        }
+      }
+
       let url = `https://api.github.com/search/repositories?q=user:${this.username}&sort=stars&order=desc&per_page=6`;
 
       try {
-        let repositories = await axios.get(url);
-        this.repositories = repositories.data.items;
+        const response = await axios.get(url);
+        this.repositories = response.data.items;
+
+        localStorage.setItem(
+          cacheKey,
+          JSON.stringify({
+            timestamp: Date.now(),
+            repositories: this.repositories
+          })
+        );
       } catch (exception) {
-        console.log(exception)
+        console.log(exception);
       }
     }
   }
