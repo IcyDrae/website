@@ -22,7 +22,6 @@ export default {
   data() {
     return {
       isMobile: false,
-      windowWidth: 0
     }
   },
   mounted() {
@@ -37,7 +36,6 @@ export default {
 
   methods: {
     checkScreenSize() {
-      this.windowWidth = window.innerWidth
       this.isMobile = window.innerWidth < 1000;
     }
   }

@@ -10,7 +10,9 @@
         <div class="hello">
           <p class="hello-text" data-text="hello">Hello</p>
           <div class="intro-description">
-            <p>_ It's Ray - a Software Developer moving toward Cybersecurity</p>
+            <p>
+              It's Ray - a Software Developer moving toward Cybersecurity<span class="blinking-cursor"></span>
+            </p>
           </div>
         </div>
       </div>
