@@ -25,7 +25,7 @@ export default {
     }
   },
   mounted() {
-    console.error("No, no errors here, hopefully :).");
+    console.log("No, no errors here, hopefully :).");
     this.checkScreenSize()
     window.addEventListener("resize", this.checkScreenSize)
   },
