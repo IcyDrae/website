@@ -7,7 +7,7 @@
     </p>
 
     <p>
-      I have 5+ years of experience building software and have worked
+      I have 7+ years of experience building software and have worked
       across frontend development, backend development, databases,
       infrastructure, and distributed systems.
     </p>

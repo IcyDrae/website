@@ -4,7 +4,10 @@
       <img v-if="!isMobile()" :src="coverImageFile" :alt="post.metadata.coverImage.Alt">
       <div class="content-wrapper">
         <p class="tag"> {{ post.metadata.tags[0] }} </p>
-        <p class="title">{{ post.metadata.title }}</p>
+        <p class="title"
+        :data-tooltip="post.metadata.title">
+          {{ post.metadata.title }}
+        </p>
       </div>
     </div>
   </router-link>

@@ -8,7 +8,7 @@
     <div class="right">
       <img src="../../../assets/icons/code.svg" alt="Programming icon">
       <div class="experience">
-        <p>With 5+ years of experience building software, I specialize in developing scalable, reliable applications and turning complex requirements into practical solutions that are built to last.</p>
+        <p>With 7+ years of experience building software, I specialize in developing scalable, reliable applications and turning complex requirements into practical solutions that are built to last.</p>
         <p>I enjoy tackling challenging technical problems, learning how systems work under the hood, and continuously expanding my skills across software engineering, Linux, infrastructure, and cybersecurity.</p>
       </div>
     </div>

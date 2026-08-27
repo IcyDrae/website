@@ -3,7 +3,7 @@
     <div class="intro">
       <div class="first">
         <div class="statistics">
-          <p>5+ <span>years building software</span></p>
+          <p>7+ <span>years building software</span></p>
           <p>10K+ <span>users supported</span></p>
           <p>Microsoft & Google <span>certified</span></p>
         </div>
