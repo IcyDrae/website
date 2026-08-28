@@ -1,17 +1,15 @@
 <template>
-  <div class="newspaper">
-    <Divider full-width></Divider>
+  <main class="home">
     <Intro></Intro>
     <AboutMe></AboutMe>
-    <Technologies></Technologies>
     <Projects></Projects>
+    <Technologies></Technologies>
     <Posts></Posts>
-  </div>
+  </main>
 </template>
 
 <script>
 
-import Divider from "../Shared/Divider.vue";
 import Intro from "@/components/Homepage/Sections/Intro.vue"
 import AboutMe from "@/components/Homepage/Sections/AboutMe.vue"
 import Technologies from "@/components/Homepage/Sections/Technologies.vue"
@@ -21,7 +19,6 @@ import Posts from "@/components/Homepage/Sections/Posts.vue";
 export default {
   name: "Homepage",
   components: {
-    Divider,
     Intro,
     AboutMe,
     Technologies,

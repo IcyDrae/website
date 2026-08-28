@@ -1,51 +1,56 @@
 .technologies {
-    padding: 100px 8%;
-
-    h1 {
-        font-size: 64px;
-        margin-bottom: 80px;
-    }
-
     .technology-groups {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 70px 100px;
+        grid-template-columns: repeat(3, 1fr);
+        border-top: 1px solid $textColor;
+        border-left: 1px solid $textColor;
     }
 
     .technology-group {
-        h2 {
-            font-size: 24px;
-            margin-bottom: 25px;
-            color: $primary;
-        }
+        min-height: 205px;
+        padding: 22px;
+        border-right: 1px solid $textColor;
+        border-bottom: 1px solid $textColor;
+    }
 
-        .technology-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
+    .technology-group h2 {
+        margin-bottom: 25px;
+        font-family: "Red Hat Mono", monospace;
+        font-size: 11px;
+        font-weight: 400;
+        letter-spacing: .07em;
+        text-transform: uppercase;
+    }
 
-            span {
-                padding: 8px 14px;
-                border: 1px solid $secondary;
-                font-size: 16px;
-                border-radius: 4px;
-            }
-        }
+    .technology-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+    }
+
+    .technology-list span {
+        padding: 5px 8px;
+        border: 1px solid $secondary;
+        font-family: "Red Hat Mono", monospace;
+        font-size: 11px;
+    }
+
+    .technology-group:last-child {
+        background: $textColor;
+        color: $bodyBackgroundColor;
+    }
+
+    .technology-group:last-child .technology-list span {
+        border-color: $bodyBackgroundColor;
     }
 }
 
-@media only screen and (max-width: 768px) {
-    .technologies {
-        padding: 80px 30px;
+@media (max-width:699px) {
+    .technologies .technology-groups {
+        grid-template-columns: 1fr;
+    }
 
-        h1 {
-            font-size: 48px;
-            margin-bottom: 50px;
-        }
-
-        .technology-groups {
-            grid-template-columns: 1fr;
-            gap: 50px;
-        }
+    .technologies .technology-group {
+        min-height: 0;
     }
 }

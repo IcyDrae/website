@@ -1,9 +1,7 @@
 <template>
-  <div class="posts-section section" id="posts">
-    <div class="section-headline">
-      <p class="portfolio-paragraph">● Blogs</p>
-      <span>My latest posts</span>
-    </div>
+  <section class="posts-section editorial-section" id="posts">
+    <div class="section-kicker"><span>Field notes</span><span>04</span></div>
+    <div class="section-title"><p>From the desk</p><h2>Recent notes and working theories.</h2></div>
     <div v-if="posts.length !== 0">
       <div class="posts-wrapper">
         <PostCard v-for="post in posts"
@@ -17,7 +15,7 @@
     <div v-else>
       Oops ... nothing here yet, try again later!
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

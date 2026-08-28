@@ -1,134 +1,116 @@
 .projects-section {
-  text-align: left;
+    text-align: left;
 
-  h2 {
-    span {
-      // @include gradientBackground(transparent 18px, #f64f59, #12c2e9);
+    .projects-title {
+        align-items: end;
     }
-  }
 
-  .projects-wrapper {
-    padding: 3rem 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
+    .projects-title>span {
+        justify-self: end;
+        font-family: "Red Hat Mono", monospace;
+        font-size: 11px;
+        color: $secondary;
+        text-transform: uppercase;
+    }
 
-    a {
-      text-decoration: none;
-      color: $primary;
+    .projects-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        border-top: 1px solid $textColor;
+        border-left: 1px solid $textColor;
+    }
 
-      .project {
-        position: relative;
+    .projects-wrapper>a {
+        display: block;
+        color: $textColor;
+        text-decoration: none;
+        border-right: 1px solid $textColor;
+        border-bottom: 1px solid $textColor;
+    }
+
+    .project {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        width: 200px;
-        height: 250px;
-        margin: 2rem;
-        padding: 1rem;
-        border: 1px solid $primary;
-        border-radius: 6px;
-
-        &::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0);
-            transition: background 0.25s ease;
-            pointer-events: none;
-            border-radius: inherit;
-        }
-
-        &::before {
-          content: "";
-          position: absolute;
-          z-index: 2;
-
-          top: 50%;
-          left: 50%;
-
-          width: 65px;
-          height: 65px;
-
-          transform: translate(-50%, -50%);
-
-          background-color: rgba($primary, 0.85);
-          background-image: url("@/assets/icons/arrow-up-right.svg");
-          background-size: 32px 32px;
-          background-position: center;
-          background-repeat: no-repeat;
-
-          border-radius: 50%;
-
-          opacity: 0;
-          transition:
-          opacity 0.25s ease,
-          transform 0.25s ease;
-        }
-
-        &:hover::after {
-            opacity: 1;
-        }
-
-        &:hover::before {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        &:hover::after {
-          background: rgba($primary, 0.25);
-        }
-
-        p {
-          margin: 5px 0;
-        }
-
-        .project-name {
-          font-size: 20px;
-          font-weight: 500;
-        }
-
-        .project-introduction {
-          .project-description {
-            font-size: 16px;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 4;
-            overflow: hidden;
-          }
-        }
-
-        .project-star {
-          display: flex;
-          justify-content: flex-start;
-          gap: 10px;
-
-          margin-top: auto;
-          flex-shrink: 0;
-
-          img, p {
-            align-self: center;
-          }
-
-          img {
-            width: 18px;
-          }
-        }
-
-        &:hover {
-          cursor: pointer;
-        }
-      }
+        min-height: 310px;
+        padding: 18px;
+        transition: background .2s ease, color .2s ease;
     }
-  }
+
+    .project:hover {
+        background: $textColor;
+        color: $bodyBackgroundColor;
+    }
+
+    .project-index {
+        color: $secondary;
+    }
+
+    .project-name {
+        margin-top: 66px;
+        font-size: clamp(30px, 3.5vw, 52px);
+        letter-spacing: -.05em;
+        line-height: .95;
+    }
+
+    .project-description {
+        max-width: 500px;
+        margin-top: 18px;
+        font-size: 16px;
+        line-height: 1.45;
+    }
+
+    .project-star {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        margin-top: 18px;
+        font-family: "Red Hat Mono", monospace;
+        font-size: 11px;
+    }
+
+    .project-star img {
+        width: 14px;
+        filter: grayscale(1);
+    }
+
+    .case-link {
+        display: block;
+        margin-top: auto;
+        padding-top: 26px;
+    }
+
+    .case-link span {
+        font-size: 19px;
+        vertical-align: -1px;
+    }
+
+    .cta-wrapper {
+        margin-top: 28px;
+        text-align: right;
+    }
+
+    .cta {
+        font-family: "Red Hat Mono", monospace;
+        font-size: 12px;
+        text-decoration: none;
+        text-transform: uppercase;
+        border-bottom: 1px solid $textColor;
+    }
 }
 
-@media only screen and (min-width: 992px) {
-  .projects-section .projects-wrapper a {
-    .project {
-      width: 350px;
-      padding: 2rem;
+@media (max-width:699px) {
+    .projects-section {
+        .projects-title>span {
+            justify-self: start;
+            margin-top: 16px;
+        }
+
+        .projects-wrapper {
+            grid-template-columns: 1fr;
+        }
+
+        .project {
+            min-height: 275px;
+        }
     }
-  }
 }

@@ -1,8 +1,7 @@
 <template>
-  <div class="section technologies" id="technologies">
-    <div class="section-headline">
-      <span>Technologies</span>
-    </div>
+  <section class="technologies editorial-section" id="technologies">
+    <div class="section-kicker"><span>Technical forensics</span><span>03</span></div>
+    <div class="section-title"><p>The lab report</p><h2>Tools found in regular use.</h2></div>
 
     <div class="technology-groups">
       <div class="technology-group">
@@ -78,7 +77,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

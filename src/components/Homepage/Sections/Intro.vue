@@ -1,26 +1,27 @@
 <template>
-  <div class="intro-section section">
-    <div class="intro">
-      <div class="first">
-        <div class="statistics">
-          <p>7+ <span>years building software</span></p>
-          <p>10K+ <span>users supported</span></p>
-          <p>Microsoft & Google <span>certified</span></p>
-        </div>
-        <div class="hello">
-          <p class="hello-text" data-text="hello">Hello</p>
-          <div class="intro-description">
-            <p>
-              It's Ray - a Software Developer moving toward Cybersecurity<span class="blinking-cursor"></span>
-            </p>
-          </div>
+  <section class="intro-section" aria-labelledby="front-page-title">
+    <div class="edition-meta"><span>Front Page</span><span>Filed under: Open systems</span></div>
+    <div class="intro-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Case No. 07 · Findings in progress</p>
+        <h1 id="front-page-title">A software developer following systems all the way down.</h1>
+        <p class="standfirst">I’m Ray — a software developer with seven years of practical experience, now moving deliberately toward cybersecurity.</p>
+        <div class="hero-links">
+          <a href="#projects">Read the work <span>→</span></a>
+          <a href="mailto:icydrae@hotmail.com">Get in touch <span>→</span></a>
         </div>
       </div>
-        <div class="headshot">
-          <img src="../../../assets/Good portrait 2 pixelated.png" alt="">
-        </div>
-      </div>
+      <figure class="headshot">
+        <img src="../../../assets/Good portrait 2 pixelated.png" alt="Ray">
+        <figcaption>Pictured: the subject, usually near a terminal and a difficult problem.</figcaption>
+      </figure>
+      <aside class="statistics" aria-label="Career highlights">
+        <div><strong>7+</strong><span>Years building software</span></div>
+        <div><strong>10K+</strong><span>Users supported</span></div>
+        <div><strong>MS + Google</strong><span>Certified</span></div>
+      </aside>
     </div>
+  </section>
 </template>
 
 <script>

@@ -1,94 +1,182 @@
 .intro-section {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    padding: 22px 32px 0;
 
-    .main-section-container {
-        z-index: -1;
-        font-size: 40px;
-
+    .edition-meta {
         display: flex;
-        align-self: flex-start;
-        transform: translateY(150%);
-        margin-left: 3rem;
+        justify-content: space-between;
+        padding-bottom: 24px;
+        color: $secondary;
+        font-family: "Red Hat Mono", monospace;
+        font-size: 11px;
+        letter-spacing: .07em;
+        text-transform: uppercase;
+    }
 
-        p {
-            text-align: left;
+    .intro-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(250px, .85fr) 165px;
+        border-top: 1px solid $textColor;
+    }
 
-            span:first-of-type {
-                color: $primary;
-                -webkit-text-stroke-color: white;
-                -webkit-text-stroke-width: 1px;
-            }
+    .hero-copy {
+        padding: clamp(36px, 6vw, 88px) clamp(20px, 4vw, 64px) 52px 0;
+    }
+
+    .eyebrow {
+        color: $red;
+        margin-bottom: 24px;
+    }
+
+    h1 {
+        max-width: 710px;
+        font-size: clamp(46px, 6.2vw, 92px);
+        font-weight: 400;
+        letter-spacing: -.06em;
+        line-height: .91;
+    }
+
+    .standfirst {
+        max-width: 540px;
+        margin-top: 27px;
+        font-size: 19px;
+        line-height: 1.35;
+    }
+
+    .hero-links {
+        display: flex;
+        gap: 26px;
+        margin-top: 32px;
+        font-family: "Red Hat Mono", monospace;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
+    .hero-links a {
+        text-decoration: none;
+        border-bottom: 1px solid $textColor;
+        padding-bottom: 4px;
+    }
+
+    .headshot {
+        align-self: end;
+        border-left: 1px solid $textColor;
+    }
+
+    .headshot img {
+        display: block;
+        width: 100%;
+        filter: grayscale(100%) contrast(90%);
+    }
+
+    .headshot figcaption {
+        padding: 10px;
+        border-top: 1px solid $textColor;
+        font-family: "Red Hat Mono", monospace;
+        font-size: 10px;
+        line-height: 1.45;
+    }
+
+    .statistics {
+        display: flex;
+        flex-direction: column;
+        border-left: 1px solid $textColor;
+    }
+
+    .statistics div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex: 1;
+        min-height: 120px;
+        padding: 15px;
+        border-bottom: 1px solid $textColor;
+
+        &:last-of-type {
+            border: none;
+        }
+    }
+
+    .statistics strong {
+        font-size: 26px;
+        font-weight: 400;
+        letter-spacing: -.04em;
+    }
+
+    .statistics span {
+        margin-top: 7px;
+        font-family: "Red Hat Mono", monospace;
+        font-size: 10px;
+        line-height: 1.35;
+        text-transform: uppercase;
+    }
+}
+
+@media (max-width:899px) {
+    .intro-section {
+        padding: 18px 18px 0;
+
+        .intro-grid {
+            grid-template-columns: 1fr 150px;
+        }
+
+        .headshot {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-left: 0;
+            border-top: 1px solid $textColor;
+        }
+
+        .headshot figcaption {
+            border-top: 0;
+            border-left: 1px solid $textColor;
         }
     }
 }
 
-@media only screen and (min-width: 768px) {
+@media (max-width:520px) {
     .intro-section {
-        flex-direction: row;
-        justify-content: space-around;
-
-        .intro {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            justify-items: center;
-            gap: 120px;
-
-            .statistics {
-                display: flex;
-
-                p {
-                    width: 50%;
-                }
-                
-                span {
-                    display: inherit;
-                    flex-direction: row;
-                    justify-content: space-around;
-                    color: $secondary;
-                }
-            }
-
-            .headshot {
-                width: fit-content;
-                flex-shrink: 0;
-
-                img {
-                    display: block;
-                    width: 600px;
-                    height: auto;
-                    filter: grayscale(100%);
-                    border-radius: 25px;
-                }
-            }
+        .intro-grid {
+            display: block;
         }
 
-        .intro .hello {
-            .hello-text {
-                font-size: 160px;
-            }
+        .hero-copy {
+            padding: 36px 0;
         }
-    }
-}
 
-@media only screen and (min-width: 992px) {
-    .intro-section {
-        .intro {
-            .intro-description {
-                font-size: 24px;
-                margin: 0;
+        .headshot {
+            display: block;
+        }
 
-                .blinking-cursor {
-                    display: inline-block;
-                    width: 0.5em;
-                    height: 1em;
-                    margin-left: 0;
-                    background: currentColor;
-                    vertical-align: -0.20em;
-                }
-            }
+        .headshot figcaption {
+            border-left: 0;
+            border-top: 1px solid $textColor;
+        }
+
+        .statistics {
+            flex-direction: row;
+            border-left: 0;
+            border-top: 1px solid $textColor;
+        }
+
+        .statistics div {
+            min-height: 105px;
+            padding: 11px;
+            border-right: 1px solid $textColor;
+            border-bottom: 0;
+        }
+
+        .statistics div:last-child {
+            border-right: 0;
+        }
+
+        .statistics strong {
+            font-size: 19px;
+        }
+
+        .hero-links {
+            gap: 16px;
+            font-size: 10px;
         }
     }
 }

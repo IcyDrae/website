@@ -1,38 +1,102 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
-  /* Prevent page twitching when no scrollbar. */
-  padding-left: calc(100vw - 100%);
-
-  body {
-    background-color: $bodyBackgroundColor;
-    overflow-x: hidden;
     scroll-behavior: smooth;
+}
 
+body {
+    background: $bodyBackgroundColor;
+    color: $textColor;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+}
+
+#app {
+    max-width: 1440px;
+    margin: 0 auto;
+    border-left: 1px solid $textColor;
+    border-right: 1px solid $textColor;
+    font-family: $fontFamily;
+    -webkit-font-smoothing: antialiased;
+    overflow-wrap: break-word;
+}
+
+.editorial-section {
+    border-top: 1px solid $textColor;
+    padding: 22px 32px 64px;
+}
+
+.section-kicker,
+.edition-line,
+.project-index,
+.case-link,
+.eyebrow,
+.footer-heading>p,
+.footer-details p,
+.imprint {
+    font-family: "Red Hat Mono", monospace;
+    font-size: 11px;
+    letter-spacing: .07em;
+    line-height: 1.35;
+    text-transform: uppercase;
+    color: $red;
+}
+
+.section-kicker {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 48px;
+    color: $secondary;
+}
+
+.section-title {
+    display: grid;
+    grid-template-columns: minmax(120px, .32fr) 1fr;
+    gap: 32px;
+    padding-bottom: 48px;
+}
+
+.section-title>p {
+    font-family: "Red Hat Mono", monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+}
+
+.section-title h2 {
+    max-width: 760px;
+    font-size: clamp(34px, 5vw, 66px);
+    font-weight: 400;
+    line-height: .98;
+    letter-spacing: -.045em;
+}
+
+@media (max-width: 699px) {
     #app {
-      font-family: $fontFamily;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      text-align: center;
-      color: $primary;
-      max-width: 1400px;
-      height: 100%;
-      margin: 0 auto;
-      overflow-wrap: break-word;
-
-      .section {
-        padding: 3rem;
-
-        .section-headline {
-          font-size: 64px;
-          margin: 1rem 0;
-          text-align: center;
-        }
-      }
+        border: 0;
     }
-  }
+
+    .editorial-section {
+        padding: 18px 18px 46px;
+    }
+
+    .section-kicker {
+        padding-bottom: 28px;
+    }
+
+    .section-title {
+        display: block;
+        padding-bottom: 30px;
+    }
+
+    .section-title>p {
+        margin-bottom: 12px;
+    }
 }

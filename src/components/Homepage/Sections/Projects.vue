@@ -1,18 +1,23 @@
 <template>
-  <div class="projects-section section" id="projects">
-    <div class="section-headline">
-      <p class="portfolio-paragraph">● Portfolio</p>
-      <span>Projects</span>
+  <section class="projects-section editorial-section" id="projects">
+    <div class="section-kicker"><span>The evidence</span><span>02</span></div>
+    <div class="section-title projects-title">
+      <div><p>Selected work</p><h2>The project archive.</h2></div>
+      <span>Repository findings · 2018—Now</span>
     </div>
     <div class="projects-wrapper">
       <a v-for="repository in repositories"
+         :key="repository.id"
          :href="repository.html_url"
-         target="_blank">
+         target="_blank"
+         rel="noopener noreferrer">
         <div class="project">
+          <div class="project-index">Exhibit {{ exhibitNumber(repository) }}</div>
           <div class="project-introduction">
             <p class="project-name">{{ repository.name }}</p>
-            <p class="project-description">{{ repository.description }}</p>
+            <p class="project-description">{{ repository.description || 'A repository currently awaiting a written field note.' }}</p>
           </div>
+          <span class="case-link">Open case file <span>→</span></span>
           <div class="project-star"
                v-if="repository.stargazers_count !== 0" >
             <img src="@/assets/icons/icons8-stern-100.png" alt="">
@@ -24,7 +29,7 @@
     <div class="cta-wrapper">
       <a class="cta" :href="`https://github.com/${username}`" target="_blank">See more</a>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -35,7 +40,7 @@ export default {
   name: "Projects",
   data() {
     return {
-      repositories: Array,
+      repositories: [],
       username: this.$store.state.GITHUB_USERNAME
     };
   },
@@ -43,6 +48,9 @@ export default {
     await this.fetchRepositories();
   },
   methods: {
+    exhibitNumber(repository) {
+      return String(this.repositories.indexOf(repository) + 1).padStart(2, '0');
+    },
     fetchRepositories: async function() {
       const cacheKey = `github-repositories-${this.username}`;
       const cacheDuration = 10 * 60 * 1000; // 10 minutes
