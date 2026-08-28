@@ -1,11 +1,14 @@
-
 $primary: #222222;
 $secondary: #7B7B7B;
 $tertiary: #F8F8F8;
 $white: #FFFFFF;
 
 $backgroundColor: #1E1E1E;
+$bodyBackgroundColor: #f4f1e9;
+$textColor: #16140f;
+$buttonBackgroundColor: #16140f;
+$secondButtonBackgroundColor: rgba(0, 0, 0, 0);
+$red: rgb(166, 56, 44);
+$footerBackgroundColor: rgb(22, 20, 15);
 
-$fontFamily: "Red Hat Mono", monospace;
-// TODO remove this one, I won't need it, use only mono everywhere :)!
-$fontFamilySecondary: "Red Hat Mono", monospace;
+$fontFamily: "Libre Caslon Display", serif;
