@@ -19,7 +19,7 @@ html {
       -moz-osx-font-smoothing: grayscale;
       text-align: center;
       color: $primary;
-      max-width: 1680px;
+      max-width: 1400px;
       height: 100%;
       margin: 0 auto;
       overflow-wrap: break-word;
@@ -33,29 +33,6 @@ html {
           text-align: center;
         }
       }
-    }
-  }
-}
-
-@media only screen and (min-width: 992px) {
-  html body #app .section {
-    padding: 3rem 5rem;
-
-    .portfolio-paragraph {
-      margin: auto;
-      width: fit-content;
-      padding: 10px;
-      font-size: 18px;
-      font-weight: 500;
-      border: 1px solid $white;
-      border-radius: 25px;
-      background-color: $white;
-    }
-
-    .section-headline {
-      font-weight: 500;
-      font-size: 64px;
-      margin: 3rem 0;
     }
   }
 }

@@ -3,23 +3,38 @@
   justify-content: space-between;
   align-items: center;
   padding: 3rem;
+  font-weight: 900;
 
   a {
     text-decoration: none;
     color: $primary;
 
     &.logo {
-      color: $tertiary;
+      color: $textColor;
       width: 50px;
       font-size: 24px;
-      border-radius: 5px;
-      @include gradientBackground(to right, #414345, #232526);
     }
   }
 
   .navigation-links {
     display: flex;
     gap: 1rem;
+    padding: 10px;
+
+    a {
+      padding: 5px 12px;
+    }
+    
+    .contact {
+      border: 1px solid black;
+      color: $bodyBackgroundColor;
+      background-color: $textColor;
+
+      &:hover {
+        color: $textColor;
+        background-color: $bodyBackgroundColor;
+      }
+    }
   }
 }
 

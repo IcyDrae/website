@@ -1,6 +1,10 @@
 <template>
   <Mobile v-if="isMobile"></Mobile>
   <div v-else class="desktop">
+    <Heading></Heading>
+    <Divider></Divider>
+    <NamePresentation></NamePresentation>
+    <Divider></Divider>
     <NavigationBar></NavigationBar>
     <router-view/>
     <Footer></Footer>
@@ -12,9 +16,15 @@
 import Mobile from "./components/Mobile/Mobile.vue";
 import NavigationBar from "@/components/NavigationBar.vue";
 import Footer from "@/components/Footer/Footer.vue";
+import Divider from "./components/Shared/Divider.vue";
+import Heading from "./components/Heading.vue";
+import NamePresentation from "./components/NamePresentation.vue";
 
 export default {
   components: {
+    Heading,
+    Divider,
+    NamePresentation,
     Mobile,
     NavigationBar,
     Footer
