@@ -98,6 +98,21 @@
                 "productivity",
                 "fundamentals"
             ]
+        },
+        {
+            "fileName": "Algorithms",
+            "title": "Studying ALgorithms",
+            "slug": "algorithms",
+            "date": "Fri Sep 23 2026 20:00:00 GMT+0100 (Central European Standard Time)",
+            "coverImage": {
+                "fileName": "algorithms.jpg",
+                "alt": "Algorithms cover."
+            },
+            "tags": [
+                "algorithms",
+                "studying",
+                "fundamentals"
+            ]
         }
     ]
 }
